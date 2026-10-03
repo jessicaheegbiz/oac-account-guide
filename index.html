@@ -44,8 +44,6 @@
       line-height: 1.6;
     }
 
-    /* HEADER */
-
     header {
       background:
         radial-gradient(circle at 10% 20%, rgba(184, 105, 81, .12), transparent 34%),
@@ -80,15 +78,11 @@
       font-size: 17px;
     }
 
-    /* PAGE */
-
     .container {
       max-width: 1000px;
       margin: 0 auto;
       padding: 38px 20px 70px;
     }
-
-    /* SEARCH */
 
     .search-panel {
       background: var(--paper);
@@ -96,7 +90,6 @@
       border-radius: 22px;
       box-shadow: var(--shadow);
       padding: 28px;
-      margin-top: -4px;
       margin-bottom: 34px;
     }
 
@@ -150,8 +143,6 @@
       display: none;
     }
 
-    /* QUICK REFERENCE */
-
     .quick-reference {
       margin-bottom: 42px;
     }
@@ -192,14 +183,9 @@
     }
 
     .quick-card .answer {
-      font-weight: 700;
-    }
-
-    .quick-card .answer span {
+      font-weight: 800;
       color: var(--terracotta);
     }
-
-    /* GUIDE SECTIONS */
 
     .section {
       margin-bottom: 42px;
@@ -246,24 +232,6 @@
       box-shadow: 0 5px 18px rgba(45, 40, 34, 0.05);
     }
 
-    .account-header {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      flex-wrap: wrap;
-    }
-
-    .account-number {
-      display: inline-block;
-      background: var(--sage-light);
-      color: #4f6453;
-      border-radius: 999px;
-      padding: 3px 10px;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
-
     .account-name {
       font-size: 18px;
       font-weight: 800;
@@ -275,8 +243,6 @@
       color: #5f5c57;
       font-size: 15px;
     }
-
-    /* SEARCH STATE */
 
     .account.search-match {
       border: 2px solid var(--terracotta);
@@ -294,8 +260,6 @@
       border-radius: 3px;
       padding: 0 2px;
     }
-
-    /* INFO CALLOUTS */
 
     .tip {
       background: var(--sage-light);
@@ -345,8 +309,6 @@
       color: var(--muted);
     }
 
-    /* NOT SURE */
-
     .not-sure {
       background: var(--gold-light);
       border: 1px solid #eddfc5;
@@ -371,8 +333,6 @@
       color: var(--ink);
     }
 
-    /* EMPTY RESULTS */
-
     #no-results {
       display: none;
       background: var(--paper);
@@ -388,8 +348,6 @@
       margin-bottom: 5px;
       font-size: 18px;
     }
-
-    /* FOOTER */
 
     footer {
       border-top: 1px solid var(--border);
@@ -429,10 +387,6 @@
       .account.search-match {
         padding: 17px;
       }
-
-      .account-name {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -441,39 +395,31 @@
 
 <header>
   <div class="eyebrow">OAC Bookkeeping Reference</div>
-
   <h1>Oceanside Art Collective</h1>
-
-  <p>
-    QuickBooks Account & Categorization Guide
-  </p>
+  <p>QuickBooks Account & Categorization Guide</p>
 </header>
 
-
 <main class="container">
-
-  <!-- SEARCH -->
 
   <section class="search-panel">
 
     <h2>What are you trying to categorize?</h2>
 
     <p>
-      Search by what you purchased, paid for, or received income from.
-      Try words like frames, workshop, Square, software, advertising, travel, or vendor.
+      Search by what happened in the business, what was purchased, who was paid,
+      or where an event took place. Try words like offsite, class, vendor, teacher,
+      framing, Square, software, advertising, or travel.
     </p>
 
     <div class="search-box">
-
       <span class="search-icon">⌕</span>
 
       <input
         type="text"
         id="search"
         autocomplete="off"
-        placeholder="Search for an expense, purchase, fee, or account..."
+        placeholder="Search for an expense, purchase, fee, revenue type, or account..."
       >
-
     </div>
 
     <div id="results-message"></div>
@@ -481,45 +427,53 @@
   </section>
 
 
-  <!-- QUICK REFERENCE -->
-
   <section class="quick-reference" id="quick-reference">
 
     <div class="section-heading">
       <h2>Quick Reference</h2>
-      <p>A few of the categories OAC uses most often.</p>
+      <p>Use these as the starting point for the most common OAC transactions.</p>
     </div>
 
     <div class="quick-grid">
 
       <div class="quick-card">
-        <div class="question">Selling artwork or merchandise?</div>
-        <div class="answer"><span>4010</span> Retail Sales</div>
+        <div class="question">Sold artwork or merchandise?</div>
+        <div class="answer">Retail Sales</div>
       </div>
 
       <div class="quick-card">
-        <div class="question">Income from a class or workshop?</div>
-        <div class="answer"><span>4020</span> Class / Workshop Revenue</div>
+        <div class="question">OAC ran an onsite class or workshop?</div>
+        <div class="answer">Class / Workshop Revenue</div>
       </div>
 
       <div class="quick-card">
-        <div class="question">Materials for products being sold?</div>
-        <div class="answer"><span>5010</span> COGS - Product Costs</div>
+        <div class="question">Outside artist used the OAC space?</div>
+        <div class="answer">Space Rental Revenue</div>
       </div>
 
       <div class="quick-card">
-        <div class="question">Supplies used for a class or event?</div>
-        <div class="answer"><span>5020</span> COGS - Class / Workshop / Event Supplies</div>
+        <div class="question">OAC ran an event away from the shop?</div>
+        <div class="answer">Offsite Event Revenue</div>
       </div>
 
       <div class="quick-card">
-        <div class="question">General shop or office supplies?</div>
-        <div class="answer"><span>6250</span> Office & Business Supplies</div>
+        <div class="question">Paid an artist for products sold in the shop?</div>
+        <div class="answer">COGS - Vendor Payouts - Retail</div>
       </div>
 
       <div class="quick-card">
-        <div class="question">Software, websites, or online tools?</div>
-        <div class="answer"><span>6260</span> Software & Web/Cloud Services</div>
+        <div class="question">Paid a teacher for an onsite class?</div>
+        <div class="answer">COGS - Teacher Payouts - Classes / Workshops</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">Paid help specifically for an offsite event?</div>
+        <div class="answer">COGS - Event Labor</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">Bought general art, workshop, or event supplies?</div>
+        <div class="answer">COGS - Class / Workshop / Event Supplies</div>
       </div>
 
     </div>
@@ -533,204 +487,181 @@
   </div>
 
 
-  <!-- INCOME -->
-
   <section class="section searchable">
 
     <div class="section-title">
       <span class="section-dot"></span>
-      <h2>Income</h2>
+      <h2>Revenue</h2>
     </div>
 
     <div
       class="account"
-      data-keywords="retail art artwork merchandise product products gallery sale sales inventory"
+      data-keywords="retail art artwork merchandise product products gallery sale sales inventory shop sold"
     >
-      <div class="account-header">
-        <span class="account-number">4010</span>
-        <span class="account-name">Retail Sales</span>
-      </div>
-
+      <div class="account-name">Retail Sales</div>
       <p>
-        Use for revenue from artwork, merchandise, products, and other retail items sold by OAC.
+        Use for product sales, including artwork, merchandise, and other retail items sold through OAC.
       </p>
     </div>
-
 
     <div
       class="account"
-      data-keywords="class classes workshop workshops event instruction ticket tickets lesson lessons"
+      data-keywords="class classes workshop workshops onsite on site oac run oac-run instruction lesson lessons teacher"
     >
-      <div class="account-header">
-        <span class="account-number">4020</span>
-        <span class="account-name">Class / Workshop Revenue</span>
-      </div>
-
+      <div class="account-name">Class / Workshop Revenue</div>
       <p>
-        Use for income earned from classes, workshops, instructional events, and similar experiences.
+        Use for OAC-run onsite classes and workshops held at the shop.
       </p>
     </div>
 
+    <div
+      class="account"
+      data-keywords="space rental rent studio outside artist external artist guest artist onsite class event room rental venue"
+    >
+      <div class="account-name">Space Rental Revenue</div>
+      <p>
+        Use for onsite classes or events where an outside artist or organizer is using OAC's space.
+      </p>
+    </div>
+
+    <div
+      class="account"
+      data-keywords="offsite off-site outside event away from shop external location popup pop-up festival market corporate event"
+    >
+      <div class="account-name">Offsite Event Revenue</div>
+      <p>
+        Use for OAC events held away from the shop.
+      </p>
+    </div>
 
     <div
       class="account"
       data-keywords="service charge surcharge customer fee fees collected"
     >
-      <div class="account-header">
-        <span class="account-number">4050</span>
-        <span class="account-name">Service Charges / Fees Collected</span>
-      </div>
-
+      <div class="account-name">Service Charges / Fees Collected</div>
       <p>
         Use for service charges or other fees collected from customers in addition to the primary sale.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="withheld processing platform square peek eventbrite fee fees revenue payout"
     >
-      <div class="account-header">
-        <span class="account-number">4060</span>
-        <span class="account-name">Revenue Withheld for Processing Fees</span>
-      </div>
-
+      <div class="account-name">Revenue Withheld for Processing Fees</div>
       <p>
         Used when a selling platform withholds processing fees from revenue before the payout reaches OAC.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="discount discounts coupon coupons promotion promo markdown"
     >
-      <div class="account-header">
-        <span class="account-number">4090</span>
-        <span class="account-name">Discounts Given</span>
-      </div>
-
+      <div class="account-name">Discounts Given</div>
       <p>
         Use for discounts, promotions, or reductions applied to customer sales.
       </p>
     </div>
 
+    <div
+      class="account"
+      data-keywords="square sales tax removed revenue tax collected square tax"
+    >
+      <div class="account-name">Square Sales Tax Removed from Revenue</div>
+      <p>
+        Used when separating sales tax collected through Square from revenue.
+      </p>
+    </div>
+
   </section>
 
-
-  <!-- COGS -->
 
   <section class="section searchable">
 
     <div class="section-title">
       <span class="section-dot"></span>
-      <h2>Cost of Goods Sold</h2>
+      <h2>Direct Costs / Cost of Goods Sold</h2>
     </div>
-
 
     <div
       class="account"
-      data-keywords="product products retail resale materials frame frames framing inventory merchandise packaging supplies art artwork"
+      data-keywords="class workshop event supplies paint canvas canvases paper brushes craft crafts decorations participant materials resin candle beads art supplies general materials default supplies"
     >
-      <div class="account-header">
-        <span class="account-number">5010</span>
-        <span class="account-name">COGS - Product Costs</span>
-      </div>
-
+      <div class="account-name">COGS - Class / Workshop / Event Supplies</div>
       <p>
-        Use for items or materials directly tied to products OAC sells.
-        Examples include merchandise purchased for resale, materials used in retail products,
-        and framing materials used on artwork being sold.
+        Use this as the default category for general art materials and supplies used by OAC,
+        including class, workshop, and event supplies.
       </p>
     </div>
 
-
     <div
       class="account"
-      data-keywords="class workshop event supplies paint canvas canvases paper brushes craft crafts decorations participant materials resin candle beads"
+      data-keywords="product products retail resale frame frames framing inventory merchandise packaging retail specific product specific"
     >
-      <div class="account-header">
-        <span class="account-number">5020</span>
-        <span class="account-name">COGS - Class / Workshop / Event Supplies</span>
-      </div>
-
+      <div class="account-name">COGS - Product Costs</div>
       <p>
-        Use for materials and supplies specifically needed to deliver a class,
-        workshop, or event, such as paint, canvases, craft materials,
-        participant supplies, or event-specific decorations.
+        Use this only when a purchase is clearly tied to products being sold,
+        or when it comes from a vendor identified as consistently related to retail products.
+        If you are unsure, use Class / Workshop / Event Supplies instead.
       </p>
     </div>
 
-
     <div
       class="account"
-      data-keywords="vendor artist artists payout payouts commission commissions retail sale"
+      data-keywords="vendor artist artists payout payouts commission commissions retail sale products sold shop"
     >
-      <div class="account-header">
-        <span class="account-number">5040</span>
-        <span class="account-name">COGS - Vendor Payouts - Retail</span>
-      </div>
-
+      <div class="account-name">COGS - Vendor Payouts - Retail</div>
       <p>
-        Use for amounts paid to artists or vendors for their share of retail product sales.
+        Use for payouts to artists or vendors for products sold in the shop.
       </p>
     </div>
 
-
     <div
       class="account"
-      data-keywords="teacher instructor teaching artist payout payouts class workshop"
+      data-keywords="teacher instructor teaching artist payout payouts class workshop onsite"
     >
-      <div class="account-header">
-        <span class="account-number">5050</span>
-        <span class="account-name">COGS - Teacher Payouts - Classes / Workshops</span>
-      </div>
-
+      <div class="account-name">COGS - Teacher Payouts - Classes / Workshops</div>
       <p>
-        Use for payments to teachers or instructors for classes and workshops.
+        Use for payments to teachers or artists for onsite classes and workshops.
       </p>
     </div>
 
-
     <div
       class="account"
-      data-keywords="event labor labour staffing staff worker helper setup cleanup"
+      data-keywords="offsite off-site event labor labour staffing staff contractor contractors worker helper setup cleanup outside event"
     >
-      <div class="account-header">
-        <span class="account-number">5060</span>
-        <span class="account-name">COGS - Event Labor</span>
-      </div>
-
+      <div class="account-name">COGS - Event Labor</div>
       <p>
-        Use for labor costs directly associated with providing a specific event.
+        Use for contractors or help paid specifically for offsite events.
       </p>
     </div>
 
   </section>
 
 
-  <!-- COGS TIP -->
-
   <div class="tip">
 
-    <div class="tip-label">Helpful distinction</div>
+    <div class="tip-label">Simple supplies rule</div>
 
-    <strong>Product Costs vs. Class / Workshop / Event Supplies</strong>
+    <strong>Most art and material purchases can go to Class / Workshop / Event Supplies.</strong>
 
     <div class="comparison">
 
       <div class="comparison-box">
-        <b>5010 · Product Costs</b>
+        <b>Default: COGS - Class / Workshop / Event Supplies</b>
         <span>
-          The purchase directly supports or becomes part of a physical product OAC is selling.
+          Use for general art supplies, workshop materials, class materials,
+          and event-related supplies unless the purchase is clearly retail-specific.
         </span>
       </div>
 
       <div class="comparison-box">
-        <b>5020 · Class / Workshop / Event Supplies</b>
+        <b>Exception: COGS - Product Costs</b>
         <span>
-          The purchase is used to deliver or run a class, workshop, or event.
+          Use only for purchases clearly tied to products being sold,
+          or vendors identified as consistently related to retail product costs.
+          If unsure, use Class / Workshop / Event Supplies.
         </span>
       </div>
 
@@ -739,7 +670,49 @@
   </div>
 
 
-  <!-- SELLING -->
+  <div class="tip">
+
+    <div class="tip-label">Revenue and direct cost logic</div>
+
+    <strong>Think about what happened in the business first.</strong>
+
+    <div class="comparison">
+
+      <div class="comparison-box">
+        <b>Onsite OAC class or workshop</b>
+        <span>
+          Revenue: Class / Workshop Revenue<br>
+          Teacher payment: COGS - Teacher Payouts - Classes / Workshops
+        </span>
+      </div>
+
+      <div class="comparison-box">
+        <b>Outside artist uses OAC space</b>
+        <span>
+          Revenue: Space Rental Revenue
+        </span>
+      </div>
+
+      <div class="comparison-box">
+        <b>OAC offsite event</b>
+        <span>
+          Revenue: Offsite Event Revenue<br>
+          Event-specific help: COGS - Event Labor
+        </span>
+      </div>
+
+      <div class="comparison-box">
+        <b>Retail product sale</b>
+        <span>
+          Revenue: Retail Sales<br>
+          Artist/vendor payout: COGS - Vendor Payouts - Retail
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
 
   <section class="section searchable">
 
@@ -748,26 +721,29 @@
       <h2>Selling Expenses</h2>
     </div>
 
-
     <div
       class="account"
       data-keywords="advertising marketing ad ads facebook instagram meta google promotion promotional flyer flyers printing social media"
     >
-      <div class="account-header">
-        <span class="account-number">6110</span>
-        <span class="account-name">Advertising & Marketing</span>
-      </div>
-
+      <div class="account-name">Advertising & Marketing</div>
       <p>
         Use for advertising, promotional materials, paid social media,
         marketing campaigns, promotional printing, and similar expenses.
       </p>
     </div>
 
+    <div
+      class="account"
+      data-keywords="client gift gifts networking gift thank you appreciation referral"
+    >
+      <div class="account-name">Client & Networking Gifts</div>
+      <p>
+        Use for business gifts related to clients, networking, referrals, or relationship-building.
+      </p>
+    </div>
+
   </section>
 
-
-  <!-- GENERAL -->
 
   <section class="section searchable">
 
@@ -776,185 +752,130 @@
       <h2>General Operating Expenses</h2>
     </div>
 
-
     <div class="account" data-keywords="rent lease rental studio building space">
-      <div class="account-header">
-        <span class="account-number">6210</span>
-        <span class="account-name">Rent & Lease</span>
-      </div>
+      <div class="account-name">Rent & Lease</div>
       <p>Use for rent, leases, and business-space rental expenses.</p>
     </div>
 
-
     <div class="account" data-keywords="utilities electric electricity water gas utility">
-      <div class="account-header">
-        <span class="account-number">6220</span>
-        <span class="account-name">Utilities</span>
-      </div>
+      <div class="account-name">Utilities</div>
       <p>Use for electricity, water, gas, and other business utilities.</p>
     </div>
 
-
     <div class="account" data-keywords="internet phone mobile wifi communication cellular">
-      <div class="account-header">
-        <span class="account-number">6230</span>
-        <span class="account-name">Internet & Communication Services</span>
-      </div>
+      <div class="account-name">Internet & Communication Services</div>
       <p>Use for internet, phone, communication services, and similar connectivity costs.</p>
     </div>
 
-
     <div class="account" data-keywords="repair repairs maintenance fix fixing equipment building">
-      <div class="account-header">
-        <span class="account-number">6240</span>
-        <span class="account-name">Repairs & Maintenance</span>
-      </div>
+      <div class="account-name">Repairs & Maintenance</div>
       <p>Use for repairs and routine maintenance of the business space or equipment.</p>
     </div>
-
 
     <div
       class="account"
       data-keywords="office business supplies general shop paper printer ink cleaning storage small tools target costco staples"
     >
-      <div class="account-header">
-        <span class="account-number">6250</span>
-        <span class="account-name">Office & Business Supplies</span>
-      </div>
-
+      <div class="account-name">Office & Business Supplies</div>
       <p>
         Use for general supplies needed to operate OAC that are not directly tied
         to a product, class, workshop, or event.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="software website web cloud app apps subscription squarespace quickbooks canva adobe google online platform digital"
     >
-      <div class="account-header">
-        <span class="account-number">6260</span>
-        <span class="account-name">Software & Web/Cloud Services</span>
-      </div>
-
+      <div class="account-name">Software & Web/Cloud Services</div>
       <p>
         Use for software subscriptions, websites, web platforms, cloud services,
         apps, and other digital tools used to operate the business.
       </p>
     </div>
 
-
     <div class="account" data-keywords="insurance policy premium liability">
-      <div class="account-header">
-        <span class="account-number">6270</span>
-        <span class="account-name">Insurance</span>
-      </div>
+      <div class="account-name">Insurance</div>
       <p>Use for business insurance premiums and related insurance costs.</p>
     </div>
-
 
     <div
       class="account"
       data-keywords="membership memberships dues subscription subscriptions association organization"
     >
-      <div class="account-header">
-        <span class="account-number">6280</span>
-        <span class="account-name">Dues & Subscriptions</span>
-      </div>
-
+      <div class="account-name">Dues & Subscriptions</div>
       <p>
         Use for membership dues and subscriptions that do not fit under software
         or another more specific category.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="tax taxes license licenses permit permits government city state filing"
     >
-      <div class="account-header">
-        <span class="account-number">6290</span>
-        <span class="account-name">Taxes & Licenses</span>
-      </div>
-
+      <div class="account-name">Taxes & Licenses</div>
       <p>
         Use for business licenses, permits, and applicable business taxes or government fees.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="meal meals food restaurant dining entertainment client lunch dinner"
     >
-      <div class="account-header">
-        <span class="account-number">6300</span>
-        <span class="account-name">Meals & Entertainment</span>
-      </div>
-
+      <div class="account-name">Meals & Entertainment</div>
       <p>
         Use for qualifying business meals and entertainment-related expenses.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="bank charge charges fee fees merchant credit card processing square stripe transaction"
     >
-      <div class="account-header">
-        <span class="account-number">6310</span>
-        <span class="account-name">Bank Charges & Merchant Fees</span>
-      </div>
-
+      <div class="account-name">Bank Charges & Merchant Fees</div>
       <p>
         Use for bank fees, merchant fees, credit card processing charges,
         transaction fees, and similar payment-processing expenses.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="education training course courses conference learning professional development"
     >
-      <div class="account-header">
-        <span class="account-number">6320</span>
-        <span class="account-name">Education & Training</span>
-      </div>
-
+      <div class="account-name">Education & Training</div>
       <p>
         Use for business-related courses, training, education, and professional development.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="travel hotel airfare flight flights lodging transportation business trip"
     >
-      <div class="account-header">
-        <span class="account-number">6330</span>
-        <span class="account-name">Travel Expense</span>
-      </div>
-
+      <div class="account-name">Travel Expense</div>
       <p>
         Use for qualifying business travel expenses.
       </p>
     </div>
 
+    <div
+      class="account"
+      data-keywords="interest loan financing finance charge charges borrowed debt"
+    >
+      <div class="account-name">Interest Expense</div>
+      <p>
+        Use for interest paid on business loans, financing, or other business debt.
+      </p>
+    </div>
 
     <div
       class="account"
       data-keywords="charitable charity contribution contributions donation donations nonprofit"
     >
-      <div class="account-header">
-        <span class="account-number">6350</span>
-        <span class="account-name">Charitable Contributions & Donations</span>
-      </div>
-
+      <div class="account-name">Charitable Contributions & Donations</div>
       <p>
         Use for business charitable contributions and donations.
       </p>
@@ -963,8 +884,6 @@
   </section>
 
 
-  <!-- ADMIN -->
-
   <section class="section searchable">
 
     <div class="section-title">
@@ -972,31 +891,21 @@
       <h2>Administrative & Professional Services</h2>
     </div>
 
-
     <div
       class="account"
       data-keywords="legal attorney lawyer professional consultant consulting services"
     >
-      <div class="account-header">
-        <span class="account-number">6420</span>
-        <span class="account-name">Legal & Professional Services</span>
-      </div>
-
+      <div class="account-name">Legal & Professional Services</div>
       <p>
         Use for legal and other professional services when a more specific account does not apply.
       </p>
     </div>
 
-
     <div
       class="account"
       data-keywords="accounting bookkeeping bookkeeper accountant cpa tax preparation financial"
     >
-      <div class="account-header">
-        <span class="account-number">6422</span>
-        <span class="account-name">Accounting & Bookkeeping</span>
-      </div>
-
+      <div class="account-name">Accounting & Bookkeeping</div>
       <p>
         Use for accounting, bookkeeping, and related financial recordkeeping services.
       </p>
@@ -1005,15 +914,13 @@
   </section>
 
 
-  <!-- NOT SURE -->
-
   <section class="not-sure">
 
     <h2>Not sure where something belongs?</h2>
 
     <p>
       <strong>Please don't guess.</strong>
-      Add a note describing what the purchase, payment, or deposit was for and
+      Add a note describing what the purchase, payment, deposit, or event was for and
       leave it for Jessica to review. A short description of the business purpose
       is usually enough to determine the correct QuickBooks category.
     </p>
@@ -1023,7 +930,7 @@
 
   <footer>
     Oceanside Art Collective QuickBooks Account Guide<br>
-    Updated October 2026
+    Account names may be refined as the QuickBooks chart of accounts evolves.
   </footer>
 
 </main>
@@ -1048,11 +955,11 @@
     const name = element.querySelector(".account-name");
     const description = element.querySelector("p");
 
-    if (name.dataset.original) {
+    if (name && name.dataset.original) {
       name.innerHTML = name.dataset.original;
     }
 
-    if (description.dataset.original) {
+    if (description && description.dataset.original) {
       description.innerHTML = description.dataset.original;
     }
   }
@@ -1062,6 +969,8 @@
 
     const name = element.querySelector(".account-name");
     const description = element.querySelector("p");
+
+    if (!name || !description) return;
 
     if (!name.dataset.original) {
       name.dataset.original = name.innerHTML;
@@ -1163,8 +1072,8 @@
 
         resultsMessage.textContent =
           totalMatches === 1
-            ? "1 matching QuickBooks category"
-            : totalMatches + " matching QuickBooks categories";
+            ? "1 matching category"
+            : totalMatches + " matching categories";
 
         resultsMessage.style.display = "block";
 
