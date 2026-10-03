@@ -84,6 +84,8 @@
       padding: 38px 20px 70px;
     }
 
+    /* SEARCH */
+
     .search-panel {
       background: var(--paper);
       border: 1px solid var(--border);
@@ -143,12 +145,14 @@
       display: none;
     }
 
+    /* QUICK REFERENCE */
+
     .quick-reference {
       margin-bottom: 42px;
     }
 
     .section-heading {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .section-heading h2 {
@@ -161,6 +165,63 @@
     .section-heading p {
       margin: 0;
       color: var(--muted);
+      max-width: 760px;
+    }
+
+    .quick-group {
+      border-radius: 18px;
+      padding: 22px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .revenue-group {
+      background: var(--terracotta-light);
+      border-color: #ecd3ca;
+    }
+
+    .cost-group {
+      background: var(--sage-light);
+      border-color: #d9e3da;
+    }
+
+    .quick-group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .quick-group-header h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      margin: 2px 0 0;
+    }
+
+    .quick-label {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .revenue-group .quick-label,
+    .revenue-group .answer,
+    .revenue-group .quick-arrow {
+      color: var(--terracotta);
+    }
+
+    .cost-group .quick-label,
+    .cost-group .answer,
+    .cost-group .quick-arrow {
+      color: var(--sage);
+    }
+
+    .quick-arrow {
+      font-size: 25px;
+      font-weight: 700;
     }
 
     .quick-grid {
@@ -170,9 +231,9 @@
     }
 
     .quick-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      border-radius: 14px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 13px;
       padding: 17px 18px;
     }
 
@@ -184,8 +245,10 @@
 
     .quick-card .answer {
       font-weight: 800;
-      color: var(--terracotta);
+      line-height: 1.35;
     }
+
+    /* MAIN SECTIONS */
 
     .section {
       margin-bottom: 42px;
@@ -244,6 +307,8 @@
       font-size: 15px;
     }
 
+    /* SEARCH RESULTS */
+
     .account.search-match {
       border: 2px solid var(--terracotta);
       box-shadow: 0 7px 25px rgba(184, 105, 81, .10);
@@ -260,6 +325,8 @@
       border-radius: 3px;
       padding: 0 2px;
     }
+
+    /* CALLOUTS */
 
     .tip {
       background: var(--sage-light);
@@ -309,6 +376,8 @@
       color: var(--muted);
     }
 
+    /* CLOSING */
+
     .not-sure {
       background: var(--gold-light);
       border: 1px solid #eddfc5;
@@ -327,10 +396,6 @@
     .not-sure p {
       margin: 0;
       color: #605a50;
-    }
-
-    .not-sure strong {
-      color: var(--ink);
     }
 
     #no-results {
@@ -363,6 +428,7 @@
     }
 
     @media (max-width: 700px) {
+
       header {
         padding: 47px 18px 42px;
       }
@@ -380,6 +446,10 @@
         grid-template-columns: 1fr;
       }
 
+      .quick-group {
+        padding: 18px;
+      }
+
       .account {
         padding: 18px;
       }
@@ -395,11 +465,16 @@
 
 <header>
   <div class="eyebrow">OAC Bookkeeping Reference</div>
+
   <h1>Oceanside Art Collective</h1>
+
   <p>QuickBooks Account & Categorization Guide</p>
 </header>
 
+
 <main class="container">
+
+  <!-- SEARCH -->
 
   <section class="search-panel">
 
@@ -407,11 +482,12 @@
 
     <p>
       Search by what happened in the business, what was purchased, who was paid,
-      or where an event took place. Try words like offsite, class, vendor, teacher,
-      framing, Square, software, advertising, or travel.
+      or where an event took place. Try words like offsite, class, vendor,
+      teacher, framing, software, advertising, or travel.
     </p>
 
     <div class="search-box">
+
       <span class="search-icon">⌕</span>
 
       <input
@@ -420,6 +496,7 @@
         autocomplete="off"
         placeholder="Search for an expense, purchase, fee, revenue type, or account..."
       >
+
     </div>
 
     <div id="results-message"></div>
@@ -427,53 +504,103 @@
   </section>
 
 
+  <!-- QUICK REFERENCE -->
+
   <section class="quick-reference" id="quick-reference">
 
     <div class="section-heading">
+
       <h2>Quick Reference</h2>
-      <p>Use these as the starting point for the most common OAC transactions.</p>
+
+      <p>
+        Start by asking whether the transaction is money coming in
+        or a direct cost of making the sale, class, or event happen.
+      </p>
+
     </div>
 
-    <div class="quick-grid">
 
-      <div class="quick-card">
-        <div class="question">Sold artwork or merchandise?</div>
-        <div class="answer">Retail Sales</div>
+    <!-- REVENUE -->
+
+    <div class="quick-group revenue-group">
+
+      <div class="quick-group-header">
+
+        <div>
+          <span class="quick-label">Money In</span>
+          <h3>Revenue / Sales</h3>
+        </div>
+
+        <span class="quick-arrow">↓</span>
+
       </div>
 
-      <div class="quick-card">
-        <div class="question">OAC ran an onsite class or workshop?</div>
-        <div class="answer">Class / Workshop Revenue</div>
+
+      <div class="quick-grid">
+
+        <div class="quick-card">
+          <div class="question">Sold artwork or merchandise?</div>
+          <div class="answer">Retail Sales</div>
+        </div>
+
+        <div class="quick-card">
+          <div class="question">OAC ran an onsite class or workshop?</div>
+          <div class="answer">Class / Workshop Revenue</div>
+        </div>
+
+        <div class="quick-card">
+          <div class="question">Outside artist used the OAC space?</div>
+          <div class="answer">Space Rental Revenue</div>
+        </div>
+
+        <div class="quick-card">
+          <div class="question">OAC ran an event away from the shop?</div>
+          <div class="answer">Offsite Event Revenue</div>
+        </div>
+
       </div>
 
-      <div class="quick-card">
-        <div class="question">Outside artist used the OAC space?</div>
-        <div class="answer">Space Rental Revenue</div>
+    </div>
+
+
+    <!-- DIRECT COSTS -->
+
+    <div class="quick-group cost-group">
+
+      <div class="quick-group-header">
+
+        <div>
+          <span class="quick-label">Money Out</span>
+          <h3>Direct Costs / Expenses</h3>
+        </div>
+
+        <span class="quick-arrow">↓</span>
+
       </div>
 
-      <div class="quick-card">
-        <div class="question">OAC ran an event away from the shop?</div>
-        <div class="answer">Offsite Event Revenue</div>
-      </div>
 
-      <div class="quick-card">
-        <div class="question">Paid an artist for products sold in the shop?</div>
-        <div class="answer">COGS - Vendor Payouts - Retail</div>
-      </div>
+      <div class="quick-grid">
 
-      <div class="quick-card">
-        <div class="question">Paid a teacher for an onsite class?</div>
-        <div class="answer">COGS - Teacher Payouts - Classes / Workshops</div>
-      </div>
+        <div class="quick-card">
+          <div class="question">Paid an artist for products sold in the shop?</div>
+          <div class="answer">COGS - Vendor Payouts - Retail</div>
+        </div>
 
-      <div class="quick-card">
-        <div class="question">Paid help specifically for an offsite event?</div>
-        <div class="answer">COGS - Event Labor</div>
-      </div>
+        <div class="quick-card">
+          <div class="question">Paid a teacher for an onsite class?</div>
+          <div class="answer">COGS - Teacher Payouts - Classes / Workshops</div>
+        </div>
 
-      <div class="quick-card">
-        <div class="question">Bought general art, workshop, or event supplies?</div>
-        <div class="answer">COGS - Class / Workshop / Event Supplies</div>
+        <div class="quick-card">
+          <div class="question">Paid help specifically for an offsite event?</div>
+          <div class="answer">COGS - Offsite Event Labor</div>
+        </div>
+
+        <div class="quick-card">
+          <div class="question">Bought general art, workshop, or event supplies?</div>
+          <div class="answer">COGS - Class / Workshop / Event Supplies</div>
+        </div>
+
       </div>
 
     </div>
@@ -482,10 +609,16 @@
 
 
   <div id="no-results">
+
     <strong>No obvious category found.</strong>
-    Try another search word, or add a note explaining what the transaction was for so Jessica can review it.
+
+    Try another search word, or add a short note about what the transaction
+    was for so Jessica can help determine the best category.
+
   </div>
 
+
+  <!-- REVENUE -->
 
   <section class="section searchable">
 
@@ -494,88 +627,89 @@
       <h2>Revenue</h2>
     </div>
 
+
     <div
       class="account"
       data-keywords="retail art artwork merchandise product products gallery sale sales inventory shop sold"
     >
+
       <div class="account-name">Retail Sales</div>
+
       <p>
-        Use for product sales, including artwork, merchandise, and other retail items sold through OAC.
+        Use for product sales, including artwork, merchandise,
+        and other retail items sold through OAC.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="class classes workshop workshops onsite on site oac run oac-run instruction lesson lessons teacher"
     >
+
       <div class="account-name">Class / Workshop Revenue</div>
+
       <p>
         Use for OAC-run onsite classes and workshops held at the shop.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="space rental rent studio outside artist external artist guest artist onsite class event room rental venue"
     >
+
       <div class="account-name">Space Rental Revenue</div>
+
       <p>
-        Use for onsite classes or events where an outside artist or organizer is using OAC's space.
+        Use for onsite classes or events where an outside artist
+        or organizer is using OAC's space.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="offsite off-site outside event away from shop external location popup pop-up festival market corporate event"
     >
+
       <div class="account-name">Offsite Event Revenue</div>
+
       <p>
         Use for OAC events held away from the shop.
       </p>
+
     </div>
+
 
     <div
       class="account"
-      data-keywords="service charge surcharge customer fee fees collected"
+      data-keywords="service charge surcharge customer fee fees collected coop co-op monthly fee rent after sales travel charge travel charges hourly work processing administrative service related"
     >
+
       <div class="account-name">Service Charges / Fees Collected</div>
-      <p>
-        Use for service charges or other fees collected from customers in addition to the primary sale.
-      </p>
-    </div>
 
-    <div
-      class="account"
-      data-keywords="withheld processing platform square peek eventbrite fee fees revenue payout"
-    >
-      <div class="account-name">Revenue Withheld for Processing Fees</div>
       <p>
-        Used when a selling platform withholds processing fees from revenue before the payout reaches OAC.
+        Use for service-related charges that are not part of a standard retail sale,
+        class, workshop, space rental, or offsite event.
       </p>
-    </div>
 
-    <div
-      class="account"
-      data-keywords="discount discounts coupon coupons promotion promo markdown"
-    >
-      <div class="account-name">Discounts Given</div>
       <p>
-        Use for discounts, promotions, or reductions applied to customer sales.
+        Examples include missed monthly co-op fees, rent due after sales,
+        travel charges, hourly work, processing or administrative fees,
+        and other service-related charges.
       </p>
-    </div>
 
-    <div
-      class="account"
-      data-keywords="square sales tax removed revenue tax collected square tax"
-    >
-      <div class="account-name">Square Sales Tax Removed from Revenue</div>
-      <p>
-        Used when separating sales tax collected through Square from revenue.
-      </p>
     </div>
 
   </section>
 
+
+  <!-- DIRECT COSTS -->
 
   <section class="section searchable">
 
@@ -584,135 +718,204 @@
       <h2>Direct Costs / Cost of Goods Sold</h2>
     </div>
 
+
     <div
       class="account"
       data-keywords="class workshop event supplies paint canvas canvases paper brushes craft crafts decorations participant materials resin candle beads art supplies general materials default supplies"
     >
-      <div class="account-name">COGS - Class / Workshop / Event Supplies</div>
+
+      <div class="account-name">
+        COGS - Class / Workshop / Event Supplies
+      </div>
+
       <p>
-        Use this as the default category for general art materials and supplies used by OAC,
-        including class, workshop, and event supplies.
+        Use this as the default category for general art materials and supplies
+        used by OAC, including class, workshop, and event supplies.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="product products retail resale frame frames framing inventory merchandise packaging retail specific product specific"
     >
-      <div class="account-name">COGS - Product Costs</div>
+
+      <div class="account-name">
+        COGS - Product Costs
+      </div>
+
       <p>
         Use this only when a purchase is clearly tied to products being sold,
-        or when it comes from a vendor identified as consistently related to retail products.
-        If you are unsure, use Class / Workshop / Event Supplies instead.
+        or when it comes from a vendor identified as consistently related
+        to retail products.
       </p>
+
+      <p>
+        If you're unsure, Class / Workshop / Event Supplies is usually
+        the best starting point.
+      </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="vendor artist artists payout payouts commission commissions retail sale products sold shop"
     >
-      <div class="account-name">COGS - Vendor Payouts - Retail</div>
+
+      <div class="account-name">
+        COGS - Vendor Payouts - Retail
+      </div>
+
       <p>
         Use for payouts to artists or vendors for products sold in the shop.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="teacher instructor teaching artist payout payouts class workshop onsite"
     >
-      <div class="account-name">COGS - Teacher Payouts - Classes / Workshops</div>
+
+      <div class="account-name">
+        COGS - Teacher Payouts - Classes / Workshops
+      </div>
+
       <p>
         Use for payments to teachers or artists for onsite classes and workshops.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="offsite off-site event labor labour staffing staff contractor contractors worker helper setup cleanup outside event"
     >
-      <div class="account-name">COGS - Event Labor</div>
+
+      <div class="account-name">
+        COGS - Offsite Event Labor
+      </div>
+
       <p>
-        Use for contractors or help paid specifically for offsite events.
+        Use for contractors or other help paid specifically for
+        OAC events held away from the shop.
       </p>
+
     </div>
 
   </section>
 
 
+  <!-- SUPPLY RULE -->
+
   <div class="tip">
 
     <div class="tip-label">Simple supplies rule</div>
 
-    <strong>Most art and material purchases can go to Class / Workshop / Event Supplies.</strong>
+    <strong>
+      Most art and material purchases can go to Class / Workshop / Event Supplies.
+    </strong>
+
 
     <div class="comparison">
 
       <div class="comparison-box">
+
         <b>Default: COGS - Class / Workshop / Event Supplies</b>
+
         <span>
           Use for general art supplies, workshop materials, class materials,
           and event-related supplies unless the purchase is clearly retail-specific.
         </span>
+
       </div>
 
+
       <div class="comparison-box">
+
         <b>Exception: COGS - Product Costs</b>
+
         <span>
           Use only for purchases clearly tied to products being sold,
           or vendors identified as consistently related to retail product costs.
-          If unsure, use Class / Workshop / Event Supplies.
         </span>
+
       </div>
 
     </div>
 
   </div>
 
+
+  <!-- REVENUE + DIRECT COST LOGIC -->
 
   <div class="tip">
 
     <div class="tip-label">Revenue and direct cost logic</div>
 
-    <strong>Think about what happened in the business first.</strong>
+    <strong>
+      Think about what happened in the business first.
+    </strong>
+
 
     <div class="comparison">
 
       <div class="comparison-box">
-        <b>Onsite OAC class or workshop</b>
+
+        <b>Onsite OAC Class or Workshop</b>
+
         <span>
           Revenue: Class / Workshop Revenue<br>
           Teacher payment: COGS - Teacher Payouts - Classes / Workshops
         </span>
+
       </div>
 
+
       <div class="comparison-box">
-        <b>Outside artist uses OAC space</b>
+
+        <b>Outside Artist Uses OAC Space</b>
+
         <span>
           Revenue: Space Rental Revenue
         </span>
+
       </div>
 
+
       <div class="comparison-box">
-        <b>OAC offsite event</b>
+
+        <b>OAC Offsite Event</b>
+
         <span>
           Revenue: Offsite Event Revenue<br>
-          Event-specific help: COGS - Event Labor
+          Event-specific help: COGS - Offsite Event Labor
         </span>
+
       </div>
 
+
       <div class="comparison-box">
-        <b>Retail product sale</b>
+
+        <b>Retail Product Sale</b>
+
         <span>
           Revenue: Retail Sales<br>
           Artist/vendor payout: COGS - Vendor Payouts - Retail
         </span>
+
       </div>
 
     </div>
 
   </div>
 
+
+  <!-- SELLING EXPENSES -->
 
   <section class="section searchable">
 
@@ -721,29 +924,44 @@
       <h2>Selling Expenses</h2>
     </div>
 
+
     <div
       class="account"
       data-keywords="advertising marketing ad ads facebook instagram meta google promotion promotional flyer flyers printing social media"
     >
-      <div class="account-name">Advertising & Marketing</div>
+
+      <div class="account-name">
+        Advertising & Marketing
+      </div>
+
       <p>
         Use for advertising, promotional materials, paid social media,
         marketing campaigns, promotional printing, and similar expenses.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="client gift gifts networking gift thank you appreciation referral"
     >
-      <div class="account-name">Client & Networking Gifts</div>
+
+      <div class="account-name">
+        Client & Networking Gifts
+      </div>
+
       <p>
-        Use for business gifts related to clients, networking, referrals, or relationship-building.
+        Use for business gifts related to clients, networking,
+        referrals, or relationship-building.
       </p>
+
     </div>
 
   </section>
 
+
+  <!-- GENERAL OPERATING EXPENSES -->
 
   <section class="section searchable">
 
@@ -752,137 +970,252 @@
       <h2>General Operating Expenses</h2>
     </div>
 
-    <div class="account" data-keywords="rent lease rental studio building space">
+
+    <div
+      class="account"
+      data-keywords="rent lease rental studio building space"
+    >
+
       <div class="account-name">Rent & Lease</div>
-      <p>Use for rent, leases, and business-space rental expenses.</p>
+
+      <p>
+        Use for rent, leases, and business-space rental expenses.
+      </p>
+
     </div>
 
-    <div class="account" data-keywords="utilities electric electricity water gas utility">
+
+    <div
+      class="account"
+      data-keywords="utilities electric electricity water gas utility"
+    >
+
       <div class="account-name">Utilities</div>
-      <p>Use for electricity, water, gas, and other business utilities.</p>
+
+      <p>
+        Use for electricity, water, gas, and other business utilities.
+      </p>
+
     </div>
 
-    <div class="account" data-keywords="internet phone mobile wifi communication cellular">
-      <div class="account-name">Internet & Communication Services</div>
-      <p>Use for internet, phone, communication services, and similar connectivity costs.</p>
+
+    <div
+      class="account"
+      data-keywords="internet phone mobile wifi communication cellular"
+    >
+
+      <div class="account-name">
+        Internet & Communication Services
+      </div>
+
+      <p>
+        Use for internet, phone, communication services,
+        and similar connectivity costs.
+      </p>
+
     </div>
 
-    <div class="account" data-keywords="repair repairs maintenance fix fixing equipment building">
-      <div class="account-name">Repairs & Maintenance</div>
-      <p>Use for repairs and routine maintenance of the business space or equipment.</p>
+
+    <div
+      class="account"
+      data-keywords="repair repairs maintenance fix fixing equipment building"
+    >
+
+      <div class="account-name">
+        Repairs & Maintenance
+      </div>
+
+      <p>
+        Use for repairs and routine maintenance of the business space or equipment.
+      </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="office business supplies general shop paper printer ink cleaning storage small tools target costco staples"
     >
-      <div class="account-name">Office & Business Supplies</div>
+
+      <div class="account-name">
+        Office & Business Supplies
+      </div>
+
       <p>
         Use for general supplies needed to operate OAC that are not directly tied
         to a product, class, workshop, or event.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="software website web cloud app apps subscription squarespace quickbooks canva adobe google online platform digital"
     >
-      <div class="account-name">Software & Web/Cloud Services</div>
+
+      <div class="account-name">
+        Software & Web/Cloud Services
+      </div>
+
       <p>
-        Use for software subscriptions, websites, web platforms, cloud services,
-        apps, and other digital tools used to operate the business.
+        Use for software subscriptions, websites, web platforms,
+        cloud services, apps, and other digital tools used to operate the business.
       </p>
+
     </div>
 
-    <div class="account" data-keywords="insurance policy premium liability">
+
+    <div
+      class="account"
+      data-keywords="insurance policy premium liability"
+    >
+
       <div class="account-name">Insurance</div>
-      <p>Use for business insurance premiums and related insurance costs.</p>
+
+      <p>
+        Use for business insurance premiums and related insurance costs.
+      </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="membership memberships dues subscription subscriptions association organization"
     >
-      <div class="account-name">Dues & Subscriptions</div>
+
+      <div class="account-name">
+        Dues & Subscriptions
+      </div>
+
       <p>
         Use for membership dues and subscriptions that do not fit under software
         or another more specific category.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="tax taxes license licenses permit permits government city state filing"
     >
-      <div class="account-name">Taxes & Licenses</div>
+
+      <div class="account-name">
+        Taxes & Licenses
+      </div>
+
       <p>
-        Use for business licenses, permits, and applicable business taxes or government fees.
+        Use for business licenses, permits, and applicable
+        business taxes or government fees.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="meal meals food restaurant dining entertainment client lunch dinner"
     >
-      <div class="account-name">Meals & Entertainment</div>
+
+      <div class="account-name">
+        Meals & Entertainment
+      </div>
+
       <p>
         Use for qualifying business meals and entertainment-related expenses.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="bank charge charges fee fees merchant credit card processing square stripe transaction"
     >
-      <div class="account-name">Bank Charges & Merchant Fees</div>
+
+      <div class="account-name">
+        Bank Charges & Merchant Fees
+      </div>
+
       <p>
         Use for bank fees, merchant fees, credit card processing charges,
         transaction fees, and similar payment-processing expenses.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="education training course courses conference learning professional development"
     >
-      <div class="account-name">Education & Training</div>
+
+      <div class="account-name">
+        Education & Training
+      </div>
+
       <p>
-        Use for business-related courses, training, education, and professional development.
+        Use for business-related courses, training, education,
+        and professional development.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="travel hotel airfare flight flights lodging transportation business trip"
     >
-      <div class="account-name">Travel Expense</div>
+
+      <div class="account-name">
+        Travel Expense
+      </div>
+
       <p>
         Use for qualifying business travel expenses.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="interest loan financing finance charge charges borrowed debt"
     >
-      <div class="account-name">Interest Expense</div>
+
+      <div class="account-name">
+        Interest Expense
+      </div>
+
       <p>
-        Use for interest paid on business loans, financing, or other business debt.
+        Use for interest paid on business loans,
+        financing, or other business debt.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="charitable charity contribution contributions donation donations nonprofit"
     >
-      <div class="account-name">Charitable Contributions & Donations</div>
+
+      <div class="account-name">
+        Charitable Contributions & Donations
+      </div>
+
       <p>
         Use for business charitable contributions and donations.
       </p>
+
     </div>
 
   </section>
 
+
+  <!-- ADMIN -->
 
   <section class="section searchable">
 
@@ -891,113 +1224,210 @@
       <h2>Administrative & Professional Services</h2>
     </div>
 
+
     <div
       class="account"
       data-keywords="legal attorney lawyer professional consultant consulting services"
     >
-      <div class="account-name">Legal & Professional Services</div>
+
+      <div class="account-name">
+        Legal & Professional Services
+      </div>
+
       <p>
-        Use for legal and other professional services when a more specific account does not apply.
+        Use for legal and other professional services
+        when a more specific account does not apply.
       </p>
+
     </div>
+
 
     <div
       class="account"
       data-keywords="accounting bookkeeping bookkeeper accountant cpa tax preparation financial"
     >
-      <div class="account-name">Accounting & Bookkeeping</div>
+
+      <div class="account-name">
+        Accounting & Bookkeeping
+      </div>
+
       <p>
-        Use for accounting, bookkeeping, and related financial recordkeeping services.
+        Use for accounting, bookkeeping,
+        and related financial recordkeeping services.
       </p>
+
     </div>
 
   </section>
 
+
+  <!-- CLOSING -->
 
   <section class="not-sure">
 
     <h2>Not sure where something belongs?</h2>
 
     <p>
-      <strong>Please don't guess.</strong>
-      Add a note describing what the purchase, payment, deposit, or event was for and
-      leave it for Jessica to review. A short description of the business purpose
-      is usually enough to determine the correct QuickBooks category.
+      No problem. Add a short note describing what the purchase,
+      payment, deposit, or event was for, and Jessica can review it from there.
+      A little context about the business purpose is usually all that's needed
+      to find the right QuickBooks category.
     </p>
 
   </section>
 
 
   <footer>
-    Oceanside Art Collective QuickBooks Account Guide<br>
-    Account names may be refined as the QuickBooks chart of accounts evolves.
+
+    Oceanside Art Collective QuickBooks Account Guide
+
+    <br>
+
+    This guide may be updated as OAC's bookkeeping categories evolve.
+
   </footer>
 
 </main>
 
 
 <script>
-  const searchInput = document.getElementById("search");
-  const sections = document.querySelectorAll(".searchable");
-  const accounts = document.querySelectorAll(".account");
-  const quickReference = document.getElementById("quick-reference");
-  const noResults = document.getElementById("no-results");
-  const resultsMessage = document.getElementById("results-message");
+
+  const searchInput =
+    document.getElementById("search");
+
+  const sections =
+    document.querySelectorAll(".searchable");
+
+  const accounts =
+    document.querySelectorAll(".account");
+
+  const quickReference =
+    document.getElementById("quick-reference");
+
+  const noResults =
+    document.getElementById("no-results");
+
+  const resultsMessage =
+    document.getElementById("results-message");
 
 
   function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+    return string.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&"
+    );
+
   }
 
 
   function clearHighlights(element) {
 
-    const name = element.querySelector(".account-name");
-    const description = element.querySelector("p");
+    const name =
+      element.querySelector(".account-name");
+
+    const descriptions =
+      element.querySelectorAll("p");
+
 
     if (name && name.dataset.original) {
-      name.innerHTML = name.dataset.original;
+
+      name.innerHTML =
+        name.dataset.original;
+
     }
 
-    if (description && description.dataset.original) {
-      description.innerHTML = description.dataset.original;
-    }
+
+    descriptions.forEach(description => {
+
+      if (description.dataset.original) {
+
+        description.innerHTML =
+          description.dataset.original;
+
+      }
+
+    });
+
   }
 
 
   function highlightText(element, query) {
 
-    const name = element.querySelector(".account-name");
-    const description = element.querySelector("p");
+    const name =
+      element.querySelector(".account-name");
 
-    if (!name || !description) return;
+    const descriptions =
+      element.querySelectorAll("p");
+
+
+    if (!name) return;
+
 
     if (!name.dataset.original) {
-      name.dataset.original = name.innerHTML;
+
+      name.dataset.original =
+        name.innerHTML;
+
     }
 
-    if (!description.dataset.original) {
-      description.dataset.original = description.innerHTML;
-    }
 
-    name.innerHTML = name.dataset.original;
-    description.innerHTML = description.dataset.original;
+    name.innerHTML =
+      name.dataset.original;
+
+
+    descriptions.forEach(description => {
+
+      if (!description.dataset.original) {
+
+        description.dataset.original =
+          description.innerHTML;
+
+      }
+
+      description.innerHTML =
+        description.dataset.original;
+
+    });
+
 
     if (!query) return;
 
-    const regex = new RegExp("(" + escapeRegExp(query) + ")", "gi");
+
+    const regex =
+      new RegExp(
+        "(" + escapeRegExp(query) + ")",
+        "gi"
+      );
+
 
     name.innerHTML =
-      name.textContent.replace(regex, "<mark>$1</mark>");
+      name.textContent.replace(
+        regex,
+        "<mark>$1</mark>"
+      );
 
-    description.innerHTML =
-      description.textContent.replace(regex, "<mark>$1</mark>");
+
+    descriptions.forEach(description => {
+
+      description.innerHTML =
+        description.textContent.replace(
+          regex,
+          "<mark>$1</mark>"
+        );
+
+    });
+
   }
 
 
   function filterAccounts() {
 
-    const query = searchInput.value.trim().toLowerCase();
+    const query =
+      searchInput.value
+        .trim()
+        .toLowerCase();
+
 
     let totalMatches = 0;
 
@@ -1006,8 +1436,16 @@
 
       clearHighlights(account);
 
-      const visibleText = account.textContent.toLowerCase();
-      const keywords = (account.dataset.keywords || "").toLowerCase();
+
+      const visibleText =
+        account.textContent
+          .toLowerCase();
+
+
+      const keywords =
+        (account.dataset.keywords || "")
+          .toLowerCase();
+
 
       const matches =
         query === "" ||
@@ -1019,18 +1457,40 @@
 
         account.classList.remove("hidden");
 
+
         if (query !== "") {
-          account.classList.add("search-match");
-          highlightText(account, query);
+
+          account.classList.add(
+            "search-match"
+          );
+
+
+          highlightText(
+            account,
+            query
+          );
+
+
           totalMatches++;
+
         } else {
-          account.classList.remove("search-match");
+
+          account.classList.remove(
+            "search-match"
+          );
+
         }
 
       } else {
 
-        account.classList.add("hidden");
-        account.classList.remove("search-match");
+        account.classList.add(
+          "hidden"
+        );
+
+
+        account.classList.remove(
+          "search-match"
+        );
 
       }
 
@@ -1040,12 +1500,26 @@
     sections.forEach(section => {
 
       const visibleAccounts =
-        section.querySelectorAll(".account:not(.hidden)");
+        section.querySelectorAll(
+          ".account:not(.hidden)"
+        );
 
-      if (visibleAccounts.length > 0 || query === "") {
-        section.classList.remove("hidden");
+
+      if (
+        visibleAccounts.length > 0 ||
+        query === ""
+      ) {
+
+        section.classList.remove(
+          "hidden"
+        );
+
       } else {
-        section.classList.add("hidden");
+
+        section.classList.add(
+          "hidden"
+        );
+
       }
 
     });
@@ -1053,29 +1527,49 @@
 
     if (query === "") {
 
-      quickReference.classList.remove("hidden");
-      noResults.style.display = "none";
-      resultsMessage.style.display = "none";
+      quickReference.classList.remove(
+        "hidden"
+      );
+
+
+      noResults.style.display =
+        "none";
+
+
+      resultsMessage.style.display =
+        "none";
 
     } else {
 
-      quickReference.classList.add("hidden");
+      quickReference.classList.add(
+        "hidden"
+      );
+
 
       if (totalMatches === 0) {
 
-        noResults.style.display = "block";
-        resultsMessage.style.display = "none";
+        noResults.style.display =
+          "block";
+
+
+        resultsMessage.style.display =
+          "none";
 
       } else {
 
-        noResults.style.display = "none";
+        noResults.style.display =
+          "none";
+
 
         resultsMessage.textContent =
           totalMatches === 1
             ? "1 matching category"
-            : totalMatches + " matching categories";
+            : totalMatches +
+              " matching categories";
 
-        resultsMessage.style.display = "block";
+
+        resultsMessage.style.display =
+          "block";
 
       }
 
@@ -1084,7 +1578,11 @@
   }
 
 
-  searchInput.addEventListener("input", filterAccounts);
+  searchInput.addEventListener(
+    "input",
+    filterAccounts
+  );
+
 </script>
 
 </body>
