@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oceanside Art Collective | QuickBooks Account Guide</title>
 
   <style>
@@ -12,19 +11,14 @@
       --paper: #ffffff;
       --ink: #292824;
       --muted: #706d67;
-
       --terracotta: #b86951;
       --terracotta-light: #f6ebe6;
-
       --sage: #778879;
       --sage-light: #edf1ec;
-
       --gold: #c79d5a;
       --gold-light: #faf3e7;
-
       --border: #e8e2da;
       --shadow: 0 8px 30px rgba(45, 40, 34, 0.06);
-
       --radius: 16px;
     }
 
@@ -38,1552 +32,1174 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
       background: var(--cream);
       color: var(--ink);
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
     }
 
     header {
-      background:
-        radial-gradient(circle at 10% 20%, rgba(184, 105, 81, .12), transparent 34%),
-        radial-gradient(circle at 90% 25%, rgba(119, 136, 121, .15), transparent 34%),
-        #fff;
-      border-bottom: 1px solid var(--border);
-      padding: 64px 20px 54px;
       text-align: center;
+      padding: 44px 20px 34px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(184, 105, 81, 0.05),
+          rgba(255, 255, 255, 0.6),
+          rgba(119, 136, 121, 0.06)
+        );
+      margin-bottom: 28px;
     }
 
     .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 2.2px;
-      font-size: 12px;
-      font-weight: 700;
+      margin: 0 0 8px;
       color: var(--terracotta);
-      margin-bottom: 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
-    header h1 {
-      margin: 0;
+    h1,
+    h2,
+    h3 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(36px, 6vw, 58px);
-      line-height: 1.05;
-      font-weight: 500;
+      font-weight: 400;
     }
 
-    header p {
-      max-width: 660px;
-      margin: 14px auto 0;
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      margin: 9px 0 0;
       color: var(--muted);
-      font-size: 17px;
+      font-size: 0.9rem;
     }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 38px 20px 70px;
-    }
-
-    /* SEARCH */
 
     .search-panel {
       background: var(--paper);
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 28px;
-      margin-bottom: 34px;
+      padding: 22px;
+      margin-bottom: 32px;
     }
 
     .search-panel h2 {
       margin: 0 0 5px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 26px;
-      font-weight: 500;
+      font-size: 1.2rem;
     }
 
-    .search-panel p {
-      margin: 0 0 18px;
+    .search-help {
+      margin: 0 0 14px;
       color: var(--muted);
+      font-size: 0.88rem;
     }
 
-    .search-box {
+    .search-wrap {
       position: relative;
-    }
-
-    #search {
-      width: 100%;
-      padding: 17px 20px 17px 48px;
-      font-size: 17px;
-      border: 2px solid var(--border);
-      border-radius: 13px;
-      background: #fff;
-      color: var(--ink);
-      outline: none;
-      transition: .2s ease;
-    }
-
-    #search:focus {
-      border-color: var(--terracotta);
-      box-shadow: 0 0 0 4px rgba(184, 105, 81, .10);
     }
 
     .search-icon {
       position: absolute;
-      left: 17px;
+      left: 15px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 19px;
       color: var(--muted);
       pointer-events: none;
     }
 
+    #search {
+      width: 100%;
+      padding: 14px 16px 14px 42px;
+      border: 1px solid #ddd5cc;
+      border-radius: 10px;
+      background: #fffdfb;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #search:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(184, 105, 81, 0.1);
+    }
+
     #results-message {
-      margin: 14px 2px 0;
-      color: var(--muted);
-      font-size: 14px;
       display: none;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
     }
 
-    /* QUICK REFERENCE */
-
-    .quick-reference {
-      margin-bottom: 42px;
+    #no-results {
+      display: none;
+      background: var(--gold-light);
+      border: 1px solid #ead9b8;
+      border-radius: 12px;
+      padding: 18px;
+      margin: 18px 0 30px;
     }
 
-    .section-heading {
-      margin-bottom: 18px;
+    #no-results strong {
+      display: block;
+      margin-bottom: 4px;
     }
 
-    .section-heading h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
-      font-weight: 500;
-      margin: 0 0 4px;
-    }
-
-    .section-heading p {
+    #no-results p {
       margin: 0;
       color: var(--muted);
-      max-width: 760px;
+      font-size: 0.88rem;
+    }
+
+    .quick-reference {
+      margin-bottom: 40px;
+    }
+
+    .quick-reference > h2 {
+      margin: 0 0 3px;
+      font-size: 1.45rem;
+    }
+
+    .quick-reference > p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.86rem;
     }
 
     .quick-group {
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 16px;
       border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 18px;
+      margin-bottom: 12px;
     }
 
-    .revenue-group {
+    .quick-group.revenue {
       background: var(--terracotta-light);
-      border-color: #ecd3ca;
+      border-color: #ead5cd;
     }
 
-    .cost-group {
+    .quick-group.cost {
       background: var(--sage-light);
-      border-color: #d9e3da;
+      border-color: #dae4db;
     }
 
-    .quick-group-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .quick-group-header h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 23px;
-      font-weight: 500;
-      margin: 2px 0 0;
-    }
-
-    .quick-label {
-      display: inline-block;
+    .group-label {
+      margin: 0 0 3px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 1.6px;
-      font-size: 11px;
-      font-weight: 800;
     }
 
-    .revenue-group .quick-label,
-    .revenue-group .answer,
-    .revenue-group .quick-arrow {
+    .revenue .group-label {
       color: var(--terracotta);
     }
 
-    .cost-group .quick-label,
-    .cost-group .answer,
-    .cost-group .quick-arrow {
+    .cost .group-label {
       color: var(--sage);
     }
 
-    .quick-arrow {
-      font-size: 25px;
-      font-weight: 700;
+    .quick-heading {
+      margin: 0 0 13px;
+      font-size: 1.05rem;
     }
 
     .quick-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 8px;
     }
 
     .quick-card {
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(255,255,255,.9);
-      border-radius: 13px;
-      padding: 17px 18px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 9px;
+      padding: 12px 13px;
     }
 
-    .quick-card .question {
-      font-size: 14px;
+    .quick-question {
+      margin: 0 0 3px;
       color: var(--muted);
-      margin-bottom: 5px;
+      font-size: 0.75rem;
     }
 
-    .quick-card .answer {
-      font-weight: 800;
-      line-height: 1.35;
+    .quick-answer {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
 
-    /* MAIN SECTIONS */
+    .revenue .quick-answer {
+      color: var(--terracotta);
+    }
+
+    .cost .quick-answer {
+      color: #59695a;
+    }
 
     .section {
-      margin-bottom: 42px;
+      margin-bottom: 34px;
     }
 
     .section-title {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
+      gap: 9px;
+      margin: 0 0 14px;
+      font-size: 1.4rem;
     }
 
-    .section-title h2 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 29px;
-      font-weight: 500;
-    }
-
-    .section-dot {
-      width: 11px;
-      height: 11px;
+    .section-title::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      flex: 0 0 8px;
       border-radius: 50%;
       background: var(--terracotta);
-      flex: 0 0 auto;
+    }
+
+    .account-list {
+      display: grid;
+      gap: 8px;
     }
 
     .account {
       background: var(--paper);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      margin-bottom: 11px;
+      border-radius: 10px;
+      padding: 15px 17px;
       transition:
-        transform .15s ease,
-        border-color .15s ease,
-        box-shadow .15s ease;
-    }
-
-    .account:hover {
-      border-color: #d7cec4;
-      box-shadow: 0 5px 18px rgba(45, 40, 34, 0.05);
+        border-color 0.2s,
+        box-shadow 0.2s,
+        transform 0.2s;
     }
 
     .account-name {
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.3;
+      margin: 0 0 3px;
+      font-size: 0.91rem;
+      font-weight: 700;
     }
 
     .account p {
-      margin: 9px 0 0;
-      color: #5f5c57;
-      font-size: 15px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.81rem;
     }
 
-    /* SEARCH RESULTS */
+    .account p + p {
+      margin-top: 7px;
+    }
 
     .account.search-match {
       border: 2px solid var(--terracotta);
-      box-shadow: 0 7px 25px rgba(184, 105, 81, .10);
-      padding: 19px 21px;
-    }
-
-    .account.search-match .account-name {
-      color: #874b3a;
+      box-shadow: 0 8px 22px rgba(184, 105, 81, 0.09);
+      transform: translateY(-1px);
     }
 
     mark {
-      background: #f6dcae;
+      background: #f7ddb2;
       color: inherit;
       border-radius: 3px;
       padding: 0 2px;
     }
 
-    /* CALLOUTS */
-
-    .tip {
+    .callout {
+      border: 1px solid #dbe4dc;
       background: var(--sage-light);
-      border: 1px solid #dce5dc;
-      border-radius: var(--radius);
-      padding: 23px 24px;
-      margin: 28px 0 42px;
+      border-radius: 14px;
+      padding: 19px;
+      margin: 16px 0 34px;
     }
 
-    .tip-label {
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 11px;
-      font-weight: 800;
+    .callout-label {
+      margin: 0 0 5px;
       color: var(--sage);
-      margin-bottom: 5px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .tip strong {
-      display: block;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 21px;
-      font-weight: 500;
-      margin-bottom: 8px;
+    .callout h3 {
+      margin: 0 0 5px;
+      font-size: 1.13rem;
     }
 
-    .comparison {
+    .callout-intro {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .rule-grid,
+    .logic-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 17px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
     }
 
-    .comparison-box {
-      background: rgba(255,255,255,.62);
-      border-radius: 12px;
-      padding: 15px;
+    .rule-card,
+    .logic-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 9px;
+      padding: 13px;
     }
 
-    .comparison-box b {
+    .rule-card strong,
+    .logic-card strong {
       display: block;
       margin-bottom: 4px;
+      font-size: 0.81rem;
     }
 
-    .comparison-box span {
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    /* CLOSING */
-
-    .not-sure {
-      background: var(--gold-light);
-      border: 1px solid #eddfc5;
-      border-radius: 18px;
-      padding: 26px;
-      margin-top: 45px;
-    }
-
-    .not-sure h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 25px;
-      font-weight: 500;
-      margin: 0 0 8px;
-    }
-
-    .not-sure p {
+    .rule-card p,
+    .logic-card p {
       margin: 0;
-      color: #605a50;
+      color: var(--muted);
+      font-size: 0.76rem;
     }
 
-    #no-results {
-      display: none;
-      background: var(--paper);
-      border: 1px dashed #cbc2b8;
-      border-radius: var(--radius);
-      padding: 28px;
-      text-align: center;
-      margin-bottom: 30px;
+    .logic-card p + p {
+      margin-top: 2px;
     }
 
-    #no-results strong {
-      display: block;
-      margin-bottom: 5px;
-      font-size: 18px;
+    .logic-card b {
+      color: var(--ink);
+    }
+
+    .support {
+      background: var(--gold-light);
+      border: 1px solid #eadcbc;
+      border-radius: 14px;
+      padding: 20px;
+      margin-top: 38px;
+    }
+
+    .support h2 {
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+    }
+
+    .support p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.85rem;
     }
 
     footer {
+      margin-top: 38px;
+      padding-top: 20px;
       border-top: 1px solid var(--border);
-      margin-top: 55px;
-      padding-top: 25px;
       text-align: center;
-      color: #817d76;
-      font-size: 13px;
+      color: var(--muted);
+      font-size: 0.72rem;
     }
 
-    .hidden {
+    footer p {
+      margin: 3px 0;
+    }
+
+    [hidden] {
       display: none !important;
     }
 
     @media (max-width: 700px) {
-
-      header {
-        padding: 47px 18px 42px;
+      .page {
+        padding: 0 15px 48px;
       }
 
-      .container {
-        padding: 26px 14px 50px;
+      header {
+        padding: 36px 14px 27px;
       }
 
       .search-panel {
-        padding: 21px;
+        padding: 18px;
       }
 
       .quick-grid,
-      .comparison {
+      .rule-grid,
+      .logic-grid {
         grid-template-columns: 1fr;
       }
 
-      .quick-group {
-        padding: 18px;
+      .section-title {
+        font-size: 1.25rem;
       }
 
       .account {
-        padding: 18px;
-      }
-
-      .account.search-match {
-        padding: 17px;
+        padding: 14px;
       }
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <p class="eyebrow">OAC Bookkeeping Reference</p>
+    <h1>Oceanside Art Collective</h1>
+    <p class="subtitle">QuickBooks Account &amp; Categorization Guide</p>
+  </header>
 
-<header>
-  <div class="eyebrow">OAC Bookkeeping Reference</div>
+  <main class="page">
 
-  <h1>Oceanside Art Collective</h1>
-
-  <p>QuickBooks Account & Categorization Guide</p>
-</header>
-
-
-<main class="container">
-
-  <!-- SEARCH -->
-
-  <section class="search-panel">
-
-    <h2>What are you trying to categorize?</h2>
-
-    <p>
-      Search by what happened in the business, what was purchased, who was paid,
-      or where an event took place. Try words like offsite, class, vendor,
-      teacher, framing, software, advertising, or travel.
-    </p>
-
-    <div class="search-box">
-
-      <span class="search-icon">⌕</span>
-
-      <input
-        type="text"
-        id="search"
-        autocomplete="off"
-        placeholder="Search for an expense, purchase, fee, revenue type, or account..."
-      >
-
-    </div>
-
-    <div id="results-message"></div>
-
-  </section>
-
-
-  <!-- QUICK REFERENCE -->
-
-  <section class="quick-reference" id="quick-reference">
-
-    <div class="section-heading">
-
-      <h2>Quick Reference</h2>
-
-      <p>
-        Start by asking whether the transaction is money coming in
-        or a direct cost of making the sale, class, or event happen.
+    <!-- SEARCH -->
+    <section class="search-panel">
+      <h2>What are you trying to categorize?</h2>
+      <p class="search-help">
+        Search by what happened in the business, what was purchased, who was paid,
+        or where an event took place. Try words like offsite, class, vendor,
+        teacher, framing, software, advertising, or travel.
       </p>
 
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search for an expense, purchase, fee, revenue type, or account..."
+          autocomplete="off"
+        />
+      </div>
+
+      <p id="results-message"></p>
+    </section>
+
+    <div id="no-results">
+      <strong>No clear match found.</strong>
+      <p>
+        Add a short note describing what the purchase, payment, deposit, or event
+        was for so Jessica can review it.
+      </p>
     </div>
 
+    <!-- QUICK REFERENCE -->
+    <section class="quick-reference" id="quick-reference">
+      <h2>Quick Reference</h2>
+      <p>
+        Start by asking whether the transaction is money coming in or a direct
+        cost of making the sale, class, or event happen.
+      </p>
+
+      <div class="quick-group revenue">
+        <p class="group-label">Money In</p>
+        <h3 class="quick-heading">Revenue / Sales</h3>
+
+        <div class="quick-grid">
+          <div class="quick-card">
+            <p class="quick-question">Sold artwork or merchandise?</p>
+            <p class="quick-answer">Retail Sales</p>
+          </div>
+
+          <div class="quick-card">
+            <p class="quick-question">OAC ran an onsite class or workshop?</p>
+            <p class="quick-answer">Class / Workshop Revenue</p>
+          </div>
+
+          <div class="quick-card">
+            <p class="quick-question">Outside artist used the OAC space?</p>
+            <p class="quick-answer">Space Rental Revenue</p>
+          </div>
+
+          <div class="quick-card">
+            <p class="quick-question">OAC ran an event away from the shop?</p>
+            <p class="quick-answer">Offsite Event Revenue</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-group cost">
+        <p class="group-label">Money Out</p>
+        <h3 class="quick-heading">Direct Costs / Expenses</h3>
+
+        <div class="quick-grid">
+          <div class="quick-card">
+            <p class="quick-question">
+              Paid an artist for products sold in the shop?
+            </p>
+            <p class="quick-answer">Vendor Payouts - Retail</p>
+          </div>
+
+          <div class="quick-card">
+            <p class="quick-question">
+              Paid a teacher for an onsite class?
+            </p>
+            <p class="quick-answer">
+              Teacher Payouts - Classes / Workshops
+            </p>
+          </div>
+
+          <div class="quick-card">
+            <p class="quick-question">
+              Paid help specifically for an offsite event?
+            </p>
+            <p class="quick-answer">Offsite Event Labor</p>
+          </div>
+
+          <div class="quick-card">
+            <p class="quick-question">
+              Bought general art, workshop, or event supplies?
+            </p>
+            <p class="quick-answer">
+              Class / Workshop / Event Supplies
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- REVENUE -->
+    <section
+      class="section searchable"
+      data-section="revenue income sales money in"
+    >
+      <h2 class="section-title">Revenue</h2>
 
-    <div class="quick-group revenue-group">
+      <div class="account-list">
 
-      <div class="quick-group-header">
+        <article
+          class="account"
+          data-keywords="retail product products merchandise artwork art goods sales shop store inventory resale"
+        >
+          <h3 class="account-name">Retail Sales</h3>
+          <p>
+            Use for product sales, including artwork, merchandise, and other
+            retail items sold through OAC.
+          </p>
+        </article>
 
-        <div>
-          <span class="quick-label">Money In</span>
-          <h3>Revenue / Sales</h3>
-        </div>
+        <article
+          class="account"
+          data-keywords="class classes workshop workshops teacher instructor onsite on site lesson lessons art class revenue income"
+        >
+          <h3 class="account-name">Class / Workshop Revenue</h3>
+          <p>
+            Use for OAC-run onsite classes and workshops held at the shop.
+          </p>
+        </article>
 
-        <span class="quick-arrow">↓</span>
+        <article
+          class="account"
+          data-keywords="space rental rent rented outside artist outside teacher outside instructor organizer room venue onsite hosted hosting"
+        >
+          <h3 class="account-name">Space Rental Revenue</h3>
+          <p>
+            Use for onsite classes or events where an outside artist or organizer
+            is using OAC's space.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="offsite off-site away event mobile private party external location outside shop remote revenue income"
+        >
+          <h3 class="account-name">Offsite Event Revenue</h3>
+          <p>
+            Use for OAC events held away from the shop.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="service charge service charges fees collected fee co-op coop monthly fee missed fee rent due after sales travel charge hourly work admin administrative processing fee"
+        >
+          <h3 class="account-name">Service Charges / Fees Collected</h3>
+          <p>
+            Use for service-related charges that are not part of a standard
+            retail sale, class, workshop, space rental, or offsite event.
+          </p>
+          <p>
+            Examples include missed monthly co-op fees, rent due after sales,
+            travel charges, hourly work, processing or administrative fees,
+            and other service-related charges.
+          </p>
+        </article>
 
       </div>
-
-
-      <div class="quick-grid">
-
-        <div class="quick-card">
-          <div class="question">Sold artwork or merchandise?</div>
-          <div class="answer">Retail Sales</div>
-        </div>
-
-        <div class="quick-card">
-          <div class="question">OAC ran an onsite class or workshop?</div>
-          <div class="answer">Class / Workshop Revenue</div>
-        </div>
-
-        <div class="quick-card">
-          <div class="question">Outside artist used the OAC space?</div>
-          <div class="answer">Space Rental Revenue</div>
-        </div>
-
-        <div class="quick-card">
-          <div class="question">OAC ran an event away from the shop?</div>
-          <div class="answer">Offsite Event Revenue</div>
-        </div>
-
-      </div>
-
-    </div>
-
+    </section>
 
     <!-- DIRECT COSTS -->
+    <section
+      class="section searchable"
+      data-section="direct cost direct costs cost of goods sold cogs supplies payouts labor"
+    >
+      <h2 class="section-title">Direct Costs / Cost of Goods Sold</h2>
 
-    <div class="quick-group cost-group">
+      <div class="account-list">
 
-      <div class="quick-group-header">
+        <article
+          class="account"
+          data-keywords="cogs 5020 class workshop event supplies materials art supplies paint canvas canvases paper craft crafts decorations participant materials temu dollar tree five below hobby lobby target walmart ross"
+        >
+          <h3 class="account-name">Class / Workshop / Event Supplies</h3>
+          <p>
+            Use this as the usual category for general art or materials
+            purchased by OAC, including class, workshop, and event supplies.
+          </p>
+        </article>
 
-        <div>
-          <span class="quick-label">Money Out</span>
-          <h3>Direct Costs / Expenses</h3>
+        <article
+          class="account"
+          data-keywords="cogs 5010 product costs retail resale merchandise inventory product materials items sold products sold books resale framing frames"
+        >
+          <h3 class="account-name">Product Costs</h3>
+          <p>
+            Use this only when a purchase is clearly tied to products being
+            sold, or when it comes from a vendor identified as consistently
+            related to retail products.
+          </p>
+          <p>
+            If you're unsure, Class / Workshop / Event Supplies is usually
+            the best starting point.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="cogs 5040 vendor payout payouts artist artists retail commission commissions product sale sales merchandise"
+        >
+          <h3 class="account-name">Vendor Payouts - Retail</h3>
+          <p>
+            Use for payouts to artists or vendors for products sold in the shop.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="cogs 5050 teacher payout teacher payouts instructor instructors class workshop onsite payment labor teaching"
+        >
+          <h3 class="account-name">
+            Teacher Payouts - Classes / Workshops
+          </h3>
+          <p>
+            Use for payments to teachers or artists for onsite classes and
+            workshops.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="cogs 5060 offsite off-site event labor contractor contractors help helper staff staffing event worker workers outside shop"
+        >
+          <h3 class="account-name">Offsite Event Labor</h3>
+          <p>
+            Use for contractors or other help paid specifically for OAC events
+            held away from the shop.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SUPPLIES RULE -->
+    <section
+      class="callout searchable"
+      data-section="supplies materials product costs workshop class event cogs"
+    >
+      <p class="callout-label">Simple Supplies Rule</p>
+      <h3>
+        Most art and material purchases can go to
+        Class / Workshop / Event Supplies.
+      </h3>
+
+      <div class="rule-grid">
+        <div class="rule-card">
+          <strong>Usually: Class / Workshop / Event Supplies</strong>
+          <p>
+            Use for general art supplies, workshop materials, class materials,
+            and event materials unless the purchase is clearly retail-specific.
+          </p>
         </div>
 
-        <span class="quick-arrow">↓</span>
-
+        <div class="rule-card">
+          <strong>Exception: Product Costs</strong>
+          <p>
+            Use only for purchases clearly tied to products being sold, or for
+            a vendor identified as consistently related to retail product costs.
+          </p>
+        </div>
       </div>
+    </section>
 
+    <!-- REVENUE / COST LOGIC -->
+    <section
+      class="callout searchable"
+      data-section="business logic revenue cost onsite offsite retail rental class workshop"
+    >
+      <p class="callout-label">Revenue and Direct Cost Logic</p>
+      <h3>Think about what happened in the business first.</h3>
+      <p class="callout-intro">
+        You don't need to think like a bookkeeper. Start with the activity.
+      </p>
 
-      <div class="quick-grid">
+      <div class="logic-grid">
 
-        <div class="quick-card">
-          <div class="question">Paid an artist for products sold in the shop?</div>
-          <div class="answer">COGS - Vendor Payouts - Retail</div>
+        <div class="logic-card">
+          <strong>Onsite OAC Class or Workshop</strong>
+          <p>
+            <b>Revenue:</b> Class / Workshop Revenue
+          </p>
+          <p>
+            <b>Teacher payment:</b>
+            Teacher Payouts - Classes / Workshops
+          </p>
         </div>
 
-        <div class="quick-card">
-          <div class="question">Paid a teacher for an onsite class?</div>
-          <div class="answer">COGS - Teacher Payouts - Classes / Workshops</div>
+        <div class="logic-card">
+          <strong>Outside Artist Uses OAC Space</strong>
+          <p>
+            <b>Revenue:</b> Space Rental Revenue
+          </p>
         </div>
 
-        <div class="quick-card">
-          <div class="question">Paid help specifically for an offsite event?</div>
-          <div class="answer">COGS - Offsite Event Labor</div>
+        <div class="logic-card">
+          <strong>OAC Offsite Event</strong>
+          <p>
+            <b>Revenue:</b> Offsite Event Revenue
+          </p>
+          <p>
+            <b>Event-specific help:</b> Offsite Event Labor
+          </p>
         </div>
 
-        <div class="quick-card">
-          <div class="question">Bought general art, workshop, or event supplies?</div>
-          <div class="answer">COGS - Class / Workshop / Event Supplies</div>
+        <div class="logic-card">
+          <strong>Retail Product Sale</strong>
+          <p>
+            <b>Revenue:</b> Retail Sales
+          </p>
+          <p>
+            <b>Artist/vendor payout:</b> Vendor Payouts - Retail
+          </p>
         </div>
 
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-
-  <div id="no-results">
-
-    <strong>No obvious category found.</strong>
-
-    Try another search word, or add a short note about what the transaction
-    was for so Jessica can help determine the best category.
-
-  </div>
-
-
-  <!-- REVENUE -->
-
-  <section class="section searchable">
-
-    <div class="section-title">
-      <span class="section-dot"></span>
-      <h2>Revenue</h2>
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="retail art artwork merchandise product products gallery sale sales inventory shop sold"
+    <!-- SELLING EXPENSES -->
+    <section
+      class="section searchable"
+      data-section="selling expenses marketing advertising gifts"
     >
-
-      <div class="account-name">Retail Sales</div>
-
-      <p>
-        Use for product sales, including artwork, merchandise,
-        and other retail items sold through OAC.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="class classes workshop workshops onsite on site oac run oac-run instruction lesson lessons teacher"
-    >
-
-      <div class="account-name">Class / Workshop Revenue</div>
-
-      <p>
-        Use for OAC-run onsite classes and workshops held at the shop.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="space rental rent studio outside artist external artist guest artist onsite class event room rental venue"
-    >
-
-      <div class="account-name">Space Rental Revenue</div>
-
-      <p>
-        Use for onsite classes or events where an outside artist
-        or organizer is using OAC's space.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="offsite off-site outside event away from shop external location popup pop-up festival market corporate event"
-    >
-
-      <div class="account-name">Offsite Event Revenue</div>
-
-      <p>
-        Use for OAC events held away from the shop.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="service charge surcharge customer fee fees collected coop co-op monthly fee rent after sales travel charge travel charges hourly work processing administrative service related"
-    >
-
-      <div class="account-name">Service Charges / Fees Collected</div>
-
-      <p>
-        Use for service-related charges that are not part of a standard retail sale,
-        class, workshop, space rental, or offsite event.
-      </p>
-
-      <p>
-        Examples include missed monthly co-op fees, rent due after sales,
-        travel charges, hourly work, processing or administrative fees,
-        and other service-related charges.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- DIRECT COSTS -->
-
-  <section class="section searchable">
-
-    <div class="section-title">
-      <span class="section-dot"></span>
-      <h2>Direct Costs / Cost of Goods Sold</h2>
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="class workshop event supplies paint canvas canvases paper brushes craft crafts decorations participant materials resin candle beads art supplies general materials default supplies"
-    >
-
-      <div class="account-name">
-        COGS - Class / Workshop / Event Supplies
-      </div>
-
-      <p>
-        Use this as the default category for general art materials and supplies
-        used by OAC, including class, workshop, and event supplies.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="product products retail resale frame frames framing inventory merchandise packaging retail specific product specific"
-    >
-
-      <div class="account-name">
-        COGS - Product Costs
-      </div>
-
-      <p>
-        Use this only when a purchase is clearly tied to products being sold,
-        or when it comes from a vendor identified as consistently related
-        to retail products.
-      </p>
-
-      <p>
-        If you're unsure, Class / Workshop / Event Supplies is usually
-        the best starting point.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="vendor artist artists payout payouts commission commissions retail sale products sold shop"
-    >
-
-      <div class="account-name">
-        COGS - Vendor Payouts - Retail
-      </div>
-
-      <p>
-        Use for payouts to artists or vendors for products sold in the shop.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="teacher instructor teaching artist payout payouts class workshop onsite"
-    >
-
-      <div class="account-name">
-        COGS - Teacher Payouts - Classes / Workshops
-      </div>
-
-      <p>
-        Use for payments to teachers or artists for onsite classes and workshops.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="offsite off-site event labor labour staffing staff contractor contractors worker helper setup cleanup outside event"
-    >
-
-      <div class="account-name">
-        COGS - Offsite Event Labor
-      </div>
-
-      <p>
-        Use for contractors or other help paid specifically for
-        OAC events held away from the shop.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- SUPPLY RULE -->
-
-  <div class="tip">
-
-    <div class="tip-label">Simple supplies rule</div>
-
-    <strong>
-      Most art and material purchases can go to Class / Workshop / Event Supplies.
-    </strong>
-
-
-    <div class="comparison">
-
-      <div class="comparison-box">
-
-        <b>Default: COGS - Class / Workshop / Event Supplies</b>
-
-        <span>
-          Use for general art supplies, workshop materials, class materials,
-          and event-related supplies unless the purchase is clearly retail-specific.
-        </span>
+      <h2 class="section-title">Selling Expenses</h2>
+
+      <div class="account-list">
+
+        <article
+          class="account"
+          data-keywords="advertising marketing ads facebook instagram social media promotion promotional printing marketing campaign website ad google ads flyers"
+        >
+          <h3 class="account-name">Advertising &amp; Marketing</h3>
+          <p>
+            Use for advertising, promotional materials, paid social media,
+            marketing campaigns, promotional printing, and similar expenses.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="client gift gifts networking relationship relationship building thank you gift promotional gift"
+        >
+          <h3 class="account-name">Client &amp; Networking Gifts</h3>
+          <p>
+            Use for business gifts related to clients, networking, referrals,
+            or relationship-building.
+          </p>
+        </article>
 
       </div>
+    </section>
 
-
-      <div class="comparison-box">
-
-        <b>Exception: COGS - Product Costs</b>
-
-        <span>
-          Use only for purchases clearly tied to products being sold,
-          or vendors identified as consistently related to retail product costs.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- REVENUE + DIRECT COST LOGIC -->
-
-  <div class="tip">
-
-    <div class="tip-label">Revenue and direct cost logic</div>
-
-    <strong>
-      Think about what happened in the business first.
-    </strong>
-
-
-    <div class="comparison">
-
-      <div class="comparison-box">
-
-        <b>Onsite OAC Class or Workshop</b>
-
-        <span>
-          Revenue: Class / Workshop Revenue<br>
-          Teacher payment: COGS - Teacher Payouts - Classes / Workshops
-        </span>
-
-      </div>
-
-
-      <div class="comparison-box">
-
-        <b>Outside Artist Uses OAC Space</b>
-
-        <span>
-          Revenue: Space Rental Revenue
-        </span>
-
-      </div>
-
-
-      <div class="comparison-box">
-
-        <b>OAC Offsite Event</b>
-
-        <span>
-          Revenue: Offsite Event Revenue<br>
-          Event-specific help: COGS - Offsite Event Labor
-        </span>
-
-      </div>
-
-
-      <div class="comparison-box">
-
-        <b>Retail Product Sale</b>
-
-        <span>
-          Revenue: Retail Sales<br>
-          Artist/vendor payout: COGS - Vendor Payouts - Retail
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- SELLING EXPENSES -->
-
-  <section class="section searchable">
-
-    <div class="section-title">
-      <span class="section-dot"></span>
-      <h2>Selling Expenses</h2>
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="advertising marketing ad ads facebook instagram meta google promotion promotional flyer flyers printing social media"
+    <!-- GENERAL OPERATING -->
+    <section
+      class="section searchable"
+      data-section="general operating expenses operations overhead"
     >
+      <h2 class="section-title">General Operating Expenses</h2>
 
-      <div class="account-name">
-        Advertising & Marketing
+      <div class="account-list">
+
+        <article
+          class="account"
+          data-keywords="rent lease landlord building space occupancy rental"
+        >
+          <h3 class="account-name">Rent &amp; Lease</h3>
+          <p>
+            Use for rent, leases, and business-space rental expenses.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="utilities electric electricity water gas power trash sewer"
+        >
+          <h3 class="account-name">Utilities</h3>
+          <p>
+            Use for electricity, water, gas, and other business utilities.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="internet communication phone mobile cellular wifi wi-fi connectivity"
+        >
+          <h3 class="account-name">
+            Internet &amp; Communication Services
+          </h3>
+          <p>
+            Use for internet, phone, communication services, and similar
+            connectivity costs.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="repair repairs maintenance fix fixing equipment building shop space plumbing electrical broken"
+        >
+          <h3 class="account-name">Repairs &amp; Maintenance</h3>
+          <p>
+            Use for repairs and routine maintenance of the business space or
+            equipment.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="office supplies business supplies paper pens printer ink toner cleaning supplies administrative supplies general supplies"
+        >
+          <h3 class="account-name">Office &amp; Business Supplies</h3>
+          <p>
+            Use for general supplies needed to operate OAC that are not directly
+            tied to a product, class, workshop, or event.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="software website web cloud subscription app apps squarespace shopify quickbooks canva adobe google workspace online platform"
+        >
+          <h3 class="account-name">Software &amp; Web/Cloud Services</h3>
+          <p>
+            Use for software subscriptions, websites, web platforms, cloud
+            services, apps, and other digital tools used to operate the business.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="insurance liability property business insurance premium premiums policy"
+        >
+          <h3 class="account-name">Insurance</h3>
+          <p>
+            Use for business insurance premiums and related insurance costs.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="dues subscription subscriptions membership memberships organization association"
+        >
+          <h3 class="account-name">Dues &amp; Subscriptions</h3>
+          <p>
+            Use for memberships, dues, and subscriptions that do not fit under
+            software or another more specific category.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="tax taxes license licenses licensing permit permits government fee fees business license"
+        >
+          <h3 class="account-name">Taxes &amp; Licenses</h3>
+          <p>
+            Use for business licenses, permits, and applicable business taxes
+            or government fees.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="meal meals food restaurant dining entertainment business meal"
+        >
+          <h3 class="account-name">Meals &amp; Entertainment</h3>
+          <p>
+            Use for qualifying business meals and entertainment-related
+            expenses.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="bank charge charges merchant fees processing fees credit card fee square stripe payment processing transaction fee"
+        >
+          <h3 class="account-name">Bank Charges &amp; Merchant Fees</h3>
+          <p>
+            Use for bank fees, merchant fees, credit card processing charges,
+            transaction fees, and similar payment-processing expenses.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="education training course courses class learning professional development conference workshop seminar"
+        >
+          <h3 class="account-name">Education &amp; Training</h3>
+          <p>
+            Use for business-related courses, training, education, and
+            professional development.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="travel airfare flight hotel lodging mileage transportation business trip parking toll"
+        >
+          <h3 class="account-name">Travel Expense</h3>
+          <p>
+            Use for qualifying business travel expenses.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="interest loan financing finance charge debt borrowing"
+        >
+          <h3 class="account-name">Interest Expense</h3>
+          <p>
+            Use for interest paid on business loans, financing, or other
+            business debt.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="charity charitable donation donations contribution contributions nonprofit"
+        >
+          <h3 class="account-name">
+            Charitable Contributions &amp; Donations
+          </h3>
+          <p>
+            Use for business charitable contributions and donations.
+          </p>
+        </article>
+
       </div>
+    </section>
 
-      <p>
-        Use for advertising, promotional materials, paid social media,
-        marketing campaigns, promotional printing, and similar expenses.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="client gift gifts networking gift thank you appreciation referral"
+    <!-- ADMIN -->
+    <section
+      class="section searchable"
+      data-section="administrative professional services legal accounting bookkeeping"
     >
+      <h2 class="section-title">
+        Administrative &amp; Professional Services
+      </h2>
 
-      <div class="account-name">
-        Client & Networking Gifts
+      <div class="account-list">
+
+        <article
+          class="account"
+          data-keywords="legal lawyer attorney professional consultant consulting professional service services"
+        >
+          <h3 class="account-name">
+            Legal &amp; Professional Services
+          </h3>
+          <p>
+            Use for legal and other professional services when a more specific
+            account does not apply.
+          </p>
+        </article>
+
+        <article
+          class="account"
+          data-keywords="accounting bookkeeping bookkeeper accountant cpa tax preparation financial records"
+        >
+          <h3 class="account-name">
+            Accounting &amp; Bookkeeping
+          </h3>
+          <p>
+            Use for accounting, bookkeeping, and related financial recordkeeping
+            services.
+          </p>
+        </article>
+
       </div>
+    </section>
 
+    <!-- SUPPORT -->
+    <section class="support">
+      <h2>Not sure where something belongs?</h2>
       <p>
-        Use for business gifts related to clients, networking,
-        referrals, or relationship-building.
+        No problem. Add a short note describing what the purchase, payment,
+        deposit, or event was for, and Jessica can review it from there.
+        A little context about the business purpose is usually all that's needed
+        to find the right QuickBooks category.
       </p>
+    </section>
 
-    </div>
-
-  </section>
-
-
-  <!-- GENERAL OPERATING EXPENSES -->
-
-  <section class="section searchable">
-
-    <div class="section-title">
-      <span class="section-dot"></span>
-      <h2>General Operating Expenses</h2>
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="rent lease rental studio building space"
-    >
-
-      <div class="account-name">Rent & Lease</div>
-
+    <footer>
+      <p>Oceanside Art Collective QuickBooks Account Guide</p>
       <p>
-        Use for rent, leases, and business-space rental expenses.
+        This guide may be updated as OAC's bookkeeping categories evolve.
       </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="utilities electric electricity water gas utility"
-    >
-
-      <div class="account-name">Utilities</div>
-
-      <p>
-        Use for electricity, water, gas, and other business utilities.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="internet phone mobile wifi communication cellular"
-    >
-
-      <div class="account-name">
-        Internet & Communication Services
-      </div>
-
-      <p>
-        Use for internet, phone, communication services,
-        and similar connectivity costs.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="repair repairs maintenance fix fixing equipment building"
-    >
-
-      <div class="account-name">
-        Repairs & Maintenance
-      </div>
-
-      <p>
-        Use for repairs and routine maintenance of the business space or equipment.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="office business supplies general shop paper printer ink cleaning storage small tools target costco staples"
-    >
-
-      <div class="account-name">
-        Office & Business Supplies
-      </div>
-
-      <p>
-        Use for general supplies needed to operate OAC that are not directly tied
-        to a product, class, workshop, or event.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="software website web cloud app apps subscription squarespace quickbooks canva adobe google online platform digital"
-    >
-
-      <div class="account-name">
-        Software & Web/Cloud Services
-      </div>
-
-      <p>
-        Use for software subscriptions, websites, web platforms,
-        cloud services, apps, and other digital tools used to operate the business.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="insurance policy premium liability"
-    >
-
-      <div class="account-name">Insurance</div>
-
-      <p>
-        Use for business insurance premiums and related insurance costs.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="membership memberships dues subscription subscriptions association organization"
-    >
-
-      <div class="account-name">
-        Dues & Subscriptions
-      </div>
-
-      <p>
-        Use for membership dues and subscriptions that do not fit under software
-        or another more specific category.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="tax taxes license licenses permit permits government city state filing"
-    >
-
-      <div class="account-name">
-        Taxes & Licenses
-      </div>
-
-      <p>
-        Use for business licenses, permits, and applicable
-        business taxes or government fees.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="meal meals food restaurant dining entertainment client lunch dinner"
-    >
-
-      <div class="account-name">
-        Meals & Entertainment
-      </div>
-
-      <p>
-        Use for qualifying business meals and entertainment-related expenses.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="bank charge charges fee fees merchant credit card processing square stripe transaction"
-    >
-
-      <div class="account-name">
-        Bank Charges & Merchant Fees
-      </div>
-
-      <p>
-        Use for bank fees, merchant fees, credit card processing charges,
-        transaction fees, and similar payment-processing expenses.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="education training course courses conference learning professional development"
-    >
-
-      <div class="account-name">
-        Education & Training
-      </div>
-
-      <p>
-        Use for business-related courses, training, education,
-        and professional development.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="travel hotel airfare flight flights lodging transportation business trip"
-    >
-
-      <div class="account-name">
-        Travel Expense
-      </div>
-
-      <p>
-        Use for qualifying business travel expenses.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="interest loan financing finance charge charges borrowed debt"
-    >
-
-      <div class="account-name">
-        Interest Expense
-      </div>
-
-      <p>
-        Use for interest paid on business loans,
-        financing, or other business debt.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="charitable charity contribution contributions donation donations nonprofit"
-    >
-
-      <div class="account-name">
-        Charitable Contributions & Donations
-      </div>
-
-      <p>
-        Use for business charitable contributions and donations.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ADMIN -->
-
-  <section class="section searchable">
-
-    <div class="section-title">
-      <span class="section-dot"></span>
-      <h2>Administrative & Professional Services</h2>
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="legal attorney lawyer professional consultant consulting services"
-    >
-
-      <div class="account-name">
-        Legal & Professional Services
-      </div>
-
-      <p>
-        Use for legal and other professional services
-        when a more specific account does not apply.
-      </p>
-
-    </div>
-
-
-    <div
-      class="account"
-      data-keywords="accounting bookkeeping bookkeeper accountant cpa tax preparation financial"
-    >
-
-      <div class="account-name">
-        Accounting & Bookkeeping
-      </div>
-
-      <p>
-        Use for accounting, bookkeeping,
-        and related financial recordkeeping services.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- CLOSING -->
-
-  <section class="not-sure">
-
-    <h2>Not sure where something belongs?</h2>
-
-    <p>
-      No problem. Add a short note describing what the purchase,
-      payment, deposit, or event was for, and Jessica can review it from there.
-      A little context about the business purpose is usually all that's needed
-      to find the right QuickBooks category.
-    </p>
-
-  </section>
-
-
-  <footer>
-
-    Oceanside Art Collective QuickBooks Account Guide
-
-    <br>
-
-    This guide may be updated as OAC's bookkeeping categories evolve.
-
-  </footer>
-
-</main>
-
-
-<script>
-
-  const searchInput =
-    document.getElementById("search");
-
-  const sections =
-    document.querySelectorAll(".searchable");
-
-  const accounts =
-    document.querySelectorAll(".account");
-
-  const quickReference =
-    document.getElementById("quick-reference");
-
-  const noResults =
-    document.getElementById("no-results");
-
-  const resultsMessage =
-    document.getElementById("results-message");
-
-
-  function escapeRegExp(string) {
-
-    return string.replace(
-      /[.*+?^${}()|[\]\\]/g,
-      "\\$&"
-    );
-
-  }
-
-
-  function clearHighlights(element) {
-
-    const name =
-      element.querySelector(".account-name");
-
-    const descriptions =
-      element.querySelectorAll("p");
-
-
-    if (name && name.dataset.original) {
-
-      name.innerHTML =
-        name.dataset.original;
-
+    </footer>
+
+  </main>
+
+  <script>
+    const searchInput = document.getElementById("search");
+    const sections = document.querySelectorAll(".searchable");
+    const accounts = document.querySelectorAll(".account");
+    const quickReference = document.getElementById("quick-reference");
+    const noResults = document.getElementById("no-results");
+    const resultsMessage = document.getElementById("results-message");
+
+    function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     }
 
+    function clearHighlights(element) {
+      const name = element.querySelector(".account-name");
 
-    descriptions.forEach(description => {
-
-      if (description.dataset.original) {
-
-        description.innerHTML =
-          description.dataset.original;
-
+      if (name && name.dataset.original) {
+        name.innerHTML = name.dataset.original;
       }
 
-    });
-
-  }
-
-
-  function highlightText(element, query) {
-
-    const name =
-      element.querySelector(".account-name");
-
-    const descriptions =
-      element.querySelectorAll("p");
-
-
-    if (!name) return;
-
-
-    if (!name.dataset.original) {
-
-      name.dataset.original =
-        name.innerHTML;
-
+      element.querySelectorAll("p").forEach((p) => {
+        if (p.dataset.original) {
+          p.innerHTML = p.dataset.original;
+        }
+      });
     }
 
+    function highlightText(element, query) {
+      if (!query) return;
 
-    name.innerHTML =
-      name.dataset.original;
+      const regex = new RegExp(`(${escapeRegExp(query)})`, "gi");
 
+      const name = element.querySelector(".account-name");
 
-    descriptions.forEach(description => {
+      if (name) {
+        if (!name.dataset.original) {
+          name.dataset.original = name.innerHTML;
+        }
 
-      if (!description.dataset.original) {
-
-        description.dataset.original =
-          description.innerHTML;
-
-      }
-
-      description.innerHTML =
-        description.dataset.original;
-
-    });
-
-
-    if (!query) return;
-
-
-    const regex =
-      new RegExp(
-        "(" + escapeRegExp(query) + ")",
-        "gi"
-      );
-
-
-    name.innerHTML =
-      name.textContent.replace(
-        regex,
-        "<mark>$1</mark>"
-      );
-
-
-    descriptions.forEach(description => {
-
-      description.innerHTML =
-        description.textContent.replace(
+        name.innerHTML = name.dataset.original.replace(
           regex,
           "<mark>$1</mark>"
         );
+      }
 
-    });
-
-  }
-
-
-  function filterAccounts() {
-
-    const query =
-      searchInput.value
-        .trim()
-        .toLowerCase();
-
-
-    let totalMatches = 0;
-
-
-    accounts.forEach(account => {
-
-      clearHighlights(account);
-
-
-      const visibleText =
-        account.textContent
-          .toLowerCase();
-
-
-      const keywords =
-        (account.dataset.keywords || "")
-          .toLowerCase();
-
-
-      const matches =
-        query === "" ||
-        visibleText.includes(query) ||
-        keywords.includes(query);
-
-
-      if (matches) {
-
-        account.classList.remove("hidden");
-
-
-        if (query !== "") {
-
-          account.classList.add(
-            "search-match"
-          );
-
-
-          highlightText(
-            account,
-            query
-          );
-
-
-          totalMatches++;
-
-        } else {
-
-          account.classList.remove(
-            "search-match"
-          );
-
+      element.querySelectorAll("p").forEach((p) => {
+        if (!p.dataset.original) {
+          p.dataset.original = p.innerHTML;
         }
 
-      } else {
-
-        account.classList.add(
-          "hidden"
+        p.innerHTML = p.dataset.original.replace(
+          regex,
+          "<mark>$1</mark>"
         );
-
-
-        account.classList.remove(
-          "search-match"
-        );
-
-      }
-
-    });
-
-
-    sections.forEach(section => {
-
-      const visibleAccounts =
-        section.querySelectorAll(
-          ".account:not(.hidden)"
-        );
-
-
-      if (
-        visibleAccounts.length > 0 ||
-        query === ""
-      ) {
-
-        section.classList.remove(
-          "hidden"
-        );
-
-      } else {
-
-        section.classList.add(
-          "hidden"
-        );
-
-      }
-
-    });
-
-
-    if (query === "") {
-
-      quickReference.classList.remove(
-        "hidden"
-      );
-
-
-      noResults.style.display =
-        "none";
-
-
-      resultsMessage.style.display =
-        "none";
-
-    } else {
-
-      quickReference.classList.add(
-        "hidden"
-      );
-
-
-      if (totalMatches === 0) {
-
-        noResults.style.display =
-          "block";
-
-
-        resultsMessage.style.display =
-          "none";
-
-      } else {
-
-        noResults.style.display =
-          "none";
-
-
-        resultsMessage.textContent =
-          totalMatches === 1
-            ? "1 matching category"
-            : totalMatches +
-              " matching categories";
-
-
-        resultsMessage.style.display =
-          "block";
-
-      }
-
+      });
     }
 
-  }
+    function filterAccounts() {
+      const query = searchInput.value.trim().toLowerCase();
 
+      accounts.forEach((account) => {
+        clearHighlights(account);
+        account.classList.remove("search-match");
+      });
 
-  searchInput.addEventListener(
-    "input",
-    filterAccounts
-  );
+      if (!query) {
+        sections.forEach((section) => {
+          section.hidden = false;
+        });
 
-</script>
+        accounts.forEach((account) => {
+          account.hidden = false;
+        });
 
+        quickReference.hidden = false;
+        noResults.style.display = "none";
+        resultsMessage.style.display = "none";
+        resultsMessage.textContent = "";
+        return;
+      }
+
+      quickReference.hidden = true;
+
+      let matchCount = 0;
+
+      sections.forEach((section) => {
+        let sectionHasMatch = false;
+
+        const sectionAccounts = section.querySelectorAll(".account");
+
+        if (sectionAccounts.length > 0) {
+          sectionAccounts.forEach((account) => {
+            const visibleText = account.textContent.toLowerCase();
+            const keywords = (
+              account.dataset.keywords || ""
+            ).toLowerCase();
+
+            const isMatch =
+              visibleText.includes(query) ||
+              keywords.includes(query);
+
+            account.hidden = !isMatch;
+
+            if (isMatch) {
+              sectionHasMatch = true;
+              matchCount++;
+              account.classList.add("search-match");
+              highlightText(account, query);
+            }
+          });
+
+          section.hidden = !sectionHasMatch;
+        } else {
+          const sectionText = section.textContent.toLowerCase();
+          const sectionKeywords = (
+            section.dataset.section || ""
+          ).toLowerCase();
+
+          const isMatch =
+            sectionText.includes(query) ||
+            sectionKeywords.includes(query);
+
+          section.hidden = !isMatch;
+
+          if (isMatch) {
+            sectionHasMatch = true;
+          }
+        }
+      });
+
+      if (matchCount === 0) {
+        noResults.style.display = "block";
+        resultsMessage.style.display = "none";
+      } else {
+        noResults.style.display = "none";
+        resultsMessage.style.display = "block";
+        resultsMessage.textContent =
+          matchCount === 1
+            ? "1 matching category"
+            : `${matchCount} matching categories`;
+      }
+    }
+
+    searchInput.addEventListener("input", filterAccounts);
+  </script>
 </body>
 </html>
