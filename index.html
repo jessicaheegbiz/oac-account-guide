@@ -3,140 +3,435 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Oceanside Art Collective | QuickBooks Account Guide</title>
 
   <style>
+    :root {
+      --cream: #fbf8f3;
+      --paper: #ffffff;
+      --ink: #292824;
+      --muted: #706d67;
+
+      --terracotta: #b86951;
+      --terracotta-light: #f6ebe6;
+
+      --sage: #778879;
+      --sage-light: #edf1ec;
+
+      --gold: #c79d5a;
+      --gold-light: #faf3e7;
+
+      --border: #e8e2da;
+      --shadow: 0 8px 30px rgba(45, 40, 34, 0.06);
+
+      --radius: 16px;
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f5;
-      color: #2c2c2c;
+      background: var(--cream);
+      color: var(--ink);
       line-height: 1.6;
     }
 
+    /* HEADER */
+
     header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 48px 20px 38px;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(184, 105, 81, .12), transparent 34%),
+        radial-gradient(circle at 90% 25%, rgba(119, 136, 121, .15), transparent 34%),
+        #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 64px 20px 54px;
       text-align: center;
     }
 
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 2.2px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+    }
+
     header h1 {
-      margin: 0 0 8px;
-      font-size: 32px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.05;
+      font-weight: 500;
     }
 
     header p {
-      margin: 0;
-      color: #666;
-      font-size: 16px;
+      max-width: 660px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: 17px;
     }
+
+    /* PAGE */
 
     .container {
-      max-width: 950px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 32px 20px 60px;
+      padding: 38px 20px 70px;
     }
 
-    .intro {
-      background: #ffffff;
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
-      padding: 22px;
-      margin-bottom: 24px;
+    /* SEARCH */
+
+    .search-panel {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-top: -4px;
+      margin-bottom: 34px;
     }
 
-    .intro h2 {
-      margin-top: 0;
-      font-size: 20px;
+    .search-panel h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 26px;
+      font-weight: 500;
     }
 
-    .search-wrap {
-      margin: 24px 0 30px;
+    .search-panel p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .search-box {
+      position: relative;
     }
 
     #search {
       width: 100%;
-      padding: 15px 18px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      padding: 17px 20px 17px 48px;
+      font-size: 17px;
+      border: 2px solid var(--border);
+      border-radius: 13px;
       background: #fff;
+      color: var(--ink);
+      outline: none;
+      transition: .2s ease;
     }
+
+    #search:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 4px rgba(184, 105, 81, .10);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 17px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 19px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    #results-message {
+      margin: 14px 2px 0;
+      color: var(--muted);
+      font-size: 14px;
+      display: none;
+    }
+
+    /* QUICK REFERENCE */
+
+    .quick-reference {
+      margin-bottom: 42px;
+    }
+
+    .section-heading {
+      margin-bottom: 16px;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      font-weight: 500;
+      margin: 0 0 4px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .quick-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 17px 18px;
+    }
+
+    .quick-card .question {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .quick-card .answer {
+      font-weight: 700;
+    }
+
+    .quick-card .answer span {
+      color: var(--terracotta);
+    }
+
+    /* GUIDE SECTIONS */
 
     .section {
-      margin-bottom: 30px;
+      margin-bottom: 42px;
     }
 
-    .section h2 {
-      font-size: 22px;
-      margin-bottom: 12px;
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 29px;
+      font-weight: 500;
+    }
+
+    .section-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      flex: 0 0 auto;
     }
 
     .account {
-      background: #ffffff;
-      border: 1px solid #e5e5e5;
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 10px;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 11px;
+      transition:
+        transform .15s ease,
+        border-color .15s ease,
+        box-shadow .15s ease;
     }
 
-    .account-title {
-      font-weight: bold;
-      font-size: 17px;
-      margin-bottom: 5px;
+    .account:hover {
+      border-color: #d7cec4;
+      box-shadow: 0 5px 18px rgba(45, 40, 34, 0.05);
+    }
+
+    .account-header {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-wrap: wrap;
     }
 
     .account-number {
       display: inline-block;
-      font-weight: bold;
-      color: #666;
-      margin-right: 8px;
+      background: var(--sage-light);
+      color: #4f6453;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .account-name {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
     }
 
     .account p {
-      margin: 5px 0 0;
-      color: #555;
+      margin: 9px 0 0;
+      color: #5f5c57;
+      font-size: 15px;
     }
 
+    /* SEARCH STATE */
+
+    .account.search-match {
+      border: 2px solid var(--terracotta);
+      box-shadow: 0 7px 25px rgba(184, 105, 81, .10);
+      padding: 19px 21px;
+    }
+
+    .account.search-match .account-name {
+      color: #874b3a;
+    }
+
+    mark {
+      background: #f6dcae;
+      color: inherit;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    /* INFO CALLOUTS */
+
     .tip {
-      background: #eef5f1;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 30px 0;
+      background: var(--sage-light);
+      border: 1px solid #dce5dc;
+      border-radius: var(--radius);
+      padding: 23px 24px;
+      margin: 28px 0 42px;
+    }
+
+    .tip-label {
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--sage);
+      margin-bottom: 5px;
     }
 
     .tip strong {
       display: block;
-      margin-bottom: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 500;
+      margin-bottom: 8px;
     }
 
-    footer {
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 17px;
+    }
+
+    .comparison-box {
+      background: rgba(255,255,255,.62);
+      border-radius: 12px;
+      padding: 15px;
+    }
+
+    .comparison-box b {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .comparison-box span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* NOT SURE */
+
+    .not-sure {
+      background: var(--gold-light);
+      border: 1px solid #eddfc5;
+      border-radius: 18px;
+      padding: 26px;
+      margin-top: 45px;
+    }
+
+    .not-sure h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 500;
+      margin: 0 0 8px;
+    }
+
+    .not-sure p {
+      margin: 0;
+      color: #605a50;
+    }
+
+    .not-sure strong {
+      color: var(--ink);
+    }
+
+    /* EMPTY RESULTS */
+
+    #no-results {
+      display: none;
+      background: var(--paper);
+      border: 1px dashed #cbc2b8;
+      border-radius: var(--radius);
+      padding: 28px;
       text-align: center;
-      color: #777;
+      margin-bottom: 30px;
+    }
+
+    #no-results strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 55px;
+      padding-top: 25px;
+      text-align: center;
+      color: #817d76;
       font-size: 13px;
-      padding-top: 30px;
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       header {
-        padding: 35px 18px 30px;
-      }
-
-      header h1 {
-        font-size: 26px;
+        padding: 47px 18px 42px;
       }
 
       .container {
-        padding: 24px 15px 45px;
+        padding: 26px 14px 50px;
+      }
+
+      .search-panel {
+        padding: 21px;
+      }
+
+      .quick-grid,
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .account {
+        padding: 18px;
+      }
+
+      .account.search-match {
+        padding: 17px;
+      }
+
+      .account-name {
+        width: 100%;
       }
     }
   </style>
@@ -145,310 +440,742 @@
 <body>
 
 <header>
+  <div class="eyebrow">OAC Bookkeeping Reference</div>
+
   <h1>Oceanside Art Collective</h1>
-  <p>QuickBooks Account & Categorization Guide</p>
+
+  <p>
+    QuickBooks Account & Categorization Guide
+  </p>
 </header>
 
-<div class="container">
 
-  <div class="intro">
-    <h2>How to use this guide</h2>
+<main class="container">
+
+  <!-- SEARCH -->
+
+  <section class="search-panel">
+
+    <h2>What are you trying to categorize?</h2>
+
     <p>
-      Use this page as a quick reference for how common Oceanside Art Collective
-      income and expenses are categorized in QuickBooks.
+      Search by what you purchased, paid for, or received income from.
+      Try words like frames, workshop, Square, software, advertising, travel, or vendor.
     </p>
-    <p>
-      Search for a word such as <strong>frames</strong>, <strong>software</strong>,
-      <strong>workshop</strong>, <strong>travel</strong>, or <strong>advertising</strong>
-      to find the most likely category.
-    </p>
+
+    <div class="search-box">
+
+      <span class="search-icon">⌕</span>
+
+      <input
+        type="text"
+        id="search"
+        autocomplete="off"
+        placeholder="Search for an expense, purchase, fee, or account..."
+      >
+
+    </div>
+
+    <div id="results-message"></div>
+
+  </section>
+
+
+  <!-- QUICK REFERENCE -->
+
+  <section class="quick-reference" id="quick-reference">
+
+    <div class="section-heading">
+      <h2>Quick Reference</h2>
+      <p>A few of the categories OAC uses most often.</p>
+    </div>
+
+    <div class="quick-grid">
+
+      <div class="quick-card">
+        <div class="question">Selling artwork or merchandise?</div>
+        <div class="answer"><span>4010</span> Retail Sales</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">Income from a class or workshop?</div>
+        <div class="answer"><span>4020</span> Class / Workshop Revenue</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">Materials for products being sold?</div>
+        <div class="answer"><span>5010</span> COGS - Product Costs</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">Supplies used for a class or event?</div>
+        <div class="answer"><span>5020</span> COGS - Class / Workshop / Event Supplies</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">General shop or office supplies?</div>
+        <div class="answer"><span>6250</span> Office & Business Supplies</div>
+      </div>
+
+      <div class="quick-card">
+        <div class="question">Software, websites, or online tools?</div>
+        <div class="answer"><span>6260</span> Software & Web/Cloud Services</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div id="no-results">
+    <strong>No obvious category found.</strong>
+    Try another search word, or add a note explaining what the transaction was for so Jessica can review it.
   </div>
 
-  <div class="search-wrap">
-    <input
-      type="text"
-      id="search"
-      placeholder="Search accounts or examples..."
-      onkeyup="filterAccounts()"
+
+  <!-- INCOME -->
+
+  <section class="section searchable">
+
+    <div class="section-title">
+      <span class="section-dot"></span>
+      <h2>Income</h2>
+    </div>
+
+    <div
+      class="account"
+      data-keywords="retail art artwork merchandise product products gallery sale sales inventory"
     >
-  </div>
-
-  <div class="section searchable">
-    <h2>Income</h2>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">4010</span>Retail Sales
+      <div class="account-header">
+        <span class="account-number">4010</span>
+        <span class="account-name">Retail Sales</span>
       </div>
-      <p>Revenue from artwork, merchandise, products, and other retail items sold by OAC.</p>
-    </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">4020</span>Class / Workshop Revenue
-      </div>
-      <p>Income from classes, workshops, instructional events, and similar experiences.</p>
-    </div>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">4050</span>Service Charges / Fees Collected
-      </div>
-      <p>Fees or service charges collected from customers in addition to the primary sale.</p>
-    </div>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">4060</span>Revenue Withheld for Processing Fees
-      </div>
-      <p>Used when a selling platform withholds processing fees from revenue before the payout reaches OAC.</p>
-    </div>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">4090</span>Discounts Given
-      </div>
-      <p>Discounts, promotions, or reductions applied to customer sales.</p>
-    </div>
-  </div>
-
-  <div class="section searchable">
-    <h2>Cost of Goods Sold</h2>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">5010</span>COGS - Product Costs
-      </div>
       <p>
-        Costs directly associated with products being sold. Examples may include
-        merchandise purchased for resale, product materials, framing materials
-        used on artwork for sale, or other costs directly tied to retail products.
+        Use for revenue from artwork, merchandise, products, and other retail items sold by OAC.
       </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">5020</span>COGS - Class / Workshop / Event Supplies
+
+    <div
+      class="account"
+      data-keywords="class classes workshop workshops event instruction ticket tickets lesson lessons"
+    >
+      <div class="account-header">
+        <span class="account-number">4020</span>
+        <span class="account-name">Class / Workshop Revenue</span>
       </div>
+
       <p>
-        Materials and supplies used specifically to provide a class, workshop, or event.
-        Examples include canvases, paint, paper, craft supplies, participant materials,
-        decorations, or other event-specific supplies.
+        Use for income earned from classes, workshops, instructional events, and similar experiences.
       </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">5040</span>COGS - Vendor Payouts - Retail
+
+    <div
+      class="account"
+      data-keywords="service charge surcharge customer fee fees collected"
+    >
+      <div class="account-header">
+        <span class="account-number">4050</span>
+        <span class="account-name">Service Charges / Fees Collected</span>
       </div>
-      <p>Amounts paid to artists or vendors for their share of retail product sales.</p>
+
+      <p>
+        Use for service charges or other fees collected from customers in addition to the primary sale.
+      </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">5050</span>COGS - Teacher Payouts - Classes / Workshops
+
+    <div
+      class="account"
+      data-keywords="withheld processing platform square peek eventbrite fee fees revenue payout"
+    >
+      <div class="account-header">
+        <span class="account-number">4060</span>
+        <span class="account-name">Revenue Withheld for Processing Fees</span>
       </div>
-      <p>Payments to teachers or instructors for classes and workshops.</p>
+
+      <p>
+        Used when a selling platform withholds processing fees from revenue before the payout reaches OAC.
+      </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">5060</span>COGS - Event Labor
+
+    <div
+      class="account"
+      data-keywords="discount discounts coupon coupons promotion promo markdown"
+    >
+      <div class="account-header">
+        <span class="account-number">4090</span>
+        <span class="account-name">Discounts Given</span>
       </div>
-      <p>Labor costs directly associated with providing a specific event.</p>
+
+      <p>
+        Use for discounts, promotions, or reductions applied to customer sales.
+      </p>
     </div>
-  </div>
+
+  </section>
+
+
+  <!-- COGS -->
+
+  <section class="section searchable">
+
+    <div class="section-title">
+      <span class="section-dot"></span>
+      <h2>Cost of Goods Sold</h2>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="product products retail resale materials frame frames framing inventory merchandise packaging supplies art artwork"
+    >
+      <div class="account-header">
+        <span class="account-number">5010</span>
+        <span class="account-name">COGS - Product Costs</span>
+      </div>
+
+      <p>
+        Use for items or materials directly tied to products OAC sells.
+        Examples include merchandise purchased for resale, materials used in retail products,
+        and framing materials used on artwork being sold.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="class workshop event supplies paint canvas canvases paper brushes craft crafts decorations participant materials resin candle beads"
+    >
+      <div class="account-header">
+        <span class="account-number">5020</span>
+        <span class="account-name">COGS - Class / Workshop / Event Supplies</span>
+      </div>
+
+      <p>
+        Use for materials and supplies specifically needed to deliver a class,
+        workshop, or event, such as paint, canvases, craft materials,
+        participant supplies, or event-specific decorations.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="vendor artist artists payout payouts commission commissions retail sale"
+    >
+      <div class="account-header">
+        <span class="account-number">5040</span>
+        <span class="account-name">COGS - Vendor Payouts - Retail</span>
+      </div>
+
+      <p>
+        Use for amounts paid to artists or vendors for their share of retail product sales.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="teacher instructor teaching artist payout payouts class workshop"
+    >
+      <div class="account-header">
+        <span class="account-number">5050</span>
+        <span class="account-name">COGS - Teacher Payouts - Classes / Workshops</span>
+      </div>
+
+      <p>
+        Use for payments to teachers or instructors for classes and workshops.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="event labor labour staffing staff worker helper setup cleanup"
+    >
+      <div class="account-header">
+        <span class="account-number">5060</span>
+        <span class="account-name">COGS - Event Labor</span>
+      </div>
+
+      <p>
+        Use for labor costs directly associated with providing a specific event.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- COGS TIP -->
 
   <div class="tip">
+
+    <div class="tip-label">Helpful distinction</div>
+
     <strong>Product Costs vs. Class / Workshop / Event Supplies</strong>
-    If the purchase directly supports a physical product being sold, use Product Costs.
-    If it is used to deliver a class, workshop, or event, use Class / Workshop / Event Supplies.
+
+    <div class="comparison">
+
+      <div class="comparison-box">
+        <b>5010 · Product Costs</b>
+        <span>
+          The purchase directly supports or becomes part of a physical product OAC is selling.
+        </span>
+      </div>
+
+      <div class="comparison-box">
+        <b>5020 · Class / Workshop / Event Supplies</b>
+        <span>
+          The purchase is used to deliver or run a class, workshop, or event.
+        </span>
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="section searchable">
-    <h2>Selling Expenses</h2>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6110</span>Advertising & Marketing
+  <!-- SELLING -->
+
+  <section class="section searchable">
+
+    <div class="section-title">
+      <span class="section-dot"></span>
+      <h2>Selling Expenses</h2>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="advertising marketing ad ads facebook instagram meta google promotion promotional flyer flyers printing social media"
+    >
+      <div class="account-header">
+        <span class="account-number">6110</span>
+        <span class="account-name">Advertising & Marketing</span>
       </div>
+
       <p>
-        Advertising, promotional materials, paid social media, marketing campaigns,
-        printing used for promotion, and similar marketing expenses.
+        Use for advertising, promotional materials, paid social media,
+        marketing campaigns, promotional printing, and similar expenses.
       </p>
     </div>
-  </div>
 
-  <div class="section searchable">
-    <h2>General Operating Expenses</h2>
+  </section>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6210</span>Rent & Lease
-      </div>
-      <p>Rent, leases, and occupancy-related rental expenses.</p>
+
+  <!-- GENERAL -->
+
+  <section class="section searchable">
+
+    <div class="section-title">
+      <span class="section-dot"></span>
+      <h2>General Operating Expenses</h2>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6220</span>Utilities
+
+    <div class="account" data-keywords="rent lease rental studio building space">
+      <div class="account-header">
+        <span class="account-number">6210</span>
+        <span class="account-name">Rent & Lease</span>
       </div>
-      <p>Electricity, water, gas, and other business utility expenses.</p>
+      <p>Use for rent, leases, and business-space rental expenses.</p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6230</span>Internet & Communication Services
+
+    <div class="account" data-keywords="utilities electric electricity water gas utility">
+      <div class="account-header">
+        <span class="account-number">6220</span>
+        <span class="account-name">Utilities</span>
       </div>
-      <p>Internet, phone, communication services, and similar connectivity costs.</p>
+      <p>Use for electricity, water, gas, and other business utilities.</p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6240</span>Repairs & Maintenance
+
+    <div class="account" data-keywords="internet phone mobile wifi communication cellular">
+      <div class="account-header">
+        <span class="account-number">6230</span>
+        <span class="account-name">Internet & Communication Services</span>
       </div>
-      <p>Repairs and routine maintenance of the business space or equipment.</p>
+      <p>Use for internet, phone, communication services, and similar connectivity costs.</p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6250</span>Office & Business Supplies
+
+    <div class="account" data-keywords="repair repairs maintenance fix fixing equipment building">
+      <div class="account-header">
+        <span class="account-number">6240</span>
+        <span class="account-name">Repairs & Maintenance</span>
       </div>
+      <p>Use for repairs and routine maintenance of the business space or equipment.</p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="office business supplies general shop paper printer ink cleaning storage small tools target costco staples"
+    >
+      <div class="account-header">
+        <span class="account-number">6250</span>
+        <span class="account-name">Office & Business Supplies</span>
+      </div>
+
       <p>
-        General supplies used to operate the business that are not directly tied
+        Use for general supplies needed to operate OAC that are not directly tied
         to a product, class, workshop, or event.
       </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6260</span>Software & Web/Cloud Services
+
+    <div
+      class="account"
+      data-keywords="software website web cloud app apps subscription squarespace quickbooks canva adobe google online platform digital"
+    >
+      <div class="account-header">
+        <span class="account-number">6260</span>
+        <span class="account-name">Software & Web/Cloud Services</span>
       </div>
+
       <p>
-        Software subscriptions, web platforms, cloud services, website tools,
-        and other digital services used to operate the business.
+        Use for software subscriptions, websites, web platforms, cloud services,
+        apps, and other digital tools used to operate the business.
       </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6270</span>Insurance
+
+    <div class="account" data-keywords="insurance policy premium liability">
+      <div class="account-header">
+        <span class="account-number">6270</span>
+        <span class="account-name">Insurance</span>
       </div>
-      <p>Business insurance premiums and related insurance costs.</p>
+      <p>Use for business insurance premiums and related insurance costs.</p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6280</span>Dues & Subscriptions
-      </div>
-      <p>Membership dues and subscriptions that do not belong under software or another more specific category.</p>
-    </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6290</span>Taxes & Licenses
+    <div
+      class="account"
+      data-keywords="membership memberships dues subscription subscriptions association organization"
+    >
+      <div class="account-header">
+        <span class="account-number">6280</span>
+        <span class="account-name">Dues & Subscriptions</span>
       </div>
-      <p>Business licenses, permits, and applicable business taxes or government fees.</p>
-    </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6300</span>Meals & Entertainment
-      </div>
-      <p>Qualifying business meals and entertainment-related expenses.</p>
-    </div>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6310</span>Bank Charges & Merchant Fees
-      </div>
       <p>
-        Bank fees, merchant processing fees, transaction fees, credit card processing
-        fees, and similar payment-processing costs.
+        Use for membership dues and subscriptions that do not fit under software
+        or another more specific category.
       </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6320</span>Education & Training
+
+    <div
+      class="account"
+      data-keywords="tax taxes license licenses permit permits government city state filing"
+    >
+      <div class="account-header">
+        <span class="account-number">6290</span>
+        <span class="account-name">Taxes & Licenses</span>
       </div>
-      <p>Business-related courses, training, education, and professional development.</p>
+
+      <p>
+        Use for business licenses, permits, and applicable business taxes or government fees.
+      </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6330</span>Travel Expense
+
+    <div
+      class="account"
+      data-keywords="meal meals food restaurant dining entertainment client lunch dinner"
+    >
+      <div class="account-header">
+        <span class="account-number">6300</span>
+        <span class="account-name">Meals & Entertainment</span>
       </div>
-      <p>Qualifying business travel expenses.</p>
+
+      <p>
+        Use for qualifying business meals and entertainment-related expenses.
+      </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6350</span>Charitable Contributions & Donations
-      </div>
-      <p>Business charitable contributions and donations.</p>
-    </div>
-  </div>
 
-  <div class="section searchable">
-    <h2>Administrative & Professional Services</h2>
-
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6420</span>Legal & Professional Services
+    <div
+      class="account"
+      data-keywords="bank charge charges fee fees merchant credit card processing square stripe transaction"
+    >
+      <div class="account-header">
+        <span class="account-number">6310</span>
+        <span class="account-name">Bank Charges & Merchant Fees</span>
       </div>
-      <p>Legal and other professional service expenses that do not have a more specific account.</p>
+
+      <p>
+        Use for bank fees, merchant fees, credit card processing charges,
+        transaction fees, and similar payment-processing expenses.
+      </p>
     </div>
 
-    <div class="account">
-      <div class="account-title">
-        <span class="account-number">6422</span>Accounting & Bookkeeping
-      </div>
-      <p>Accounting, bookkeeping, and related financial recordkeeping services.</p>
-    </div>
-  </div>
 
-  <div class="tip">
-    <strong>Not sure where something belongs?</strong>
-    Do not guess. Add a clear note describing what the purchase or payment was for
-    so Jessica can determine the appropriate QuickBooks category.
-  </div>
+    <div
+      class="account"
+      data-keywords="education training course courses conference learning professional development"
+    >
+      <div class="account-header">
+        <span class="account-number">6320</span>
+        <span class="account-name">Education & Training</span>
+      </div>
+
+      <p>
+        Use for business-related courses, training, education, and professional development.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="travel hotel airfare flight flights lodging transportation business trip"
+    >
+      <div class="account-header">
+        <span class="account-number">6330</span>
+        <span class="account-name">Travel Expense</span>
+      </div>
+
+      <p>
+        Use for qualifying business travel expenses.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="charitable charity contribution contributions donation donations nonprofit"
+    >
+      <div class="account-header">
+        <span class="account-number">6350</span>
+        <span class="account-name">Charitable Contributions & Donations</span>
+      </div>
+
+      <p>
+        Use for business charitable contributions and donations.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ADMIN -->
+
+  <section class="section searchable">
+
+    <div class="section-title">
+      <span class="section-dot"></span>
+      <h2>Administrative & Professional Services</h2>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="legal attorney lawyer professional consultant consulting services"
+    >
+      <div class="account-header">
+        <span class="account-number">6420</span>
+        <span class="account-name">Legal & Professional Services</span>
+      </div>
+
+      <p>
+        Use for legal and other professional services when a more specific account does not apply.
+      </p>
+    </div>
+
+
+    <div
+      class="account"
+      data-keywords="accounting bookkeeping bookkeeper accountant cpa tax preparation financial"
+    >
+      <div class="account-header">
+        <span class="account-number">6422</span>
+        <span class="account-name">Accounting & Bookkeeping</span>
+      </div>
+
+      <p>
+        Use for accounting, bookkeeping, and related financial recordkeeping services.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- NOT SURE -->
+
+  <section class="not-sure">
+
+    <h2>Not sure where something belongs?</h2>
+
+    <p>
+      <strong>Please don't guess.</strong>
+      Add a note describing what the purchase, payment, or deposit was for and
+      leave it for Jessica to review. A short description of the business purpose
+      is usually enough to determine the correct QuickBooks category.
+    </p>
+
+  </section>
+
 
   <footer>
     Oceanside Art Collective QuickBooks Account Guide<br>
     Updated October 2026
   </footer>
 
-</div>
+</main>
+
 
 <script>
+  const searchInput = document.getElementById("search");
+  const sections = document.querySelectorAll(".searchable");
+  const accounts = document.querySelectorAll(".account");
+  const quickReference = document.getElementById("quick-reference");
+  const noResults = document.getElementById("no-results");
+  const resultsMessage = document.getElementById("results-message");
+
+
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+
+  function clearHighlights(element) {
+
+    const name = element.querySelector(".account-name");
+    const description = element.querySelector("p");
+
+    if (name.dataset.original) {
+      name.innerHTML = name.dataset.original;
+    }
+
+    if (description.dataset.original) {
+      description.innerHTML = description.dataset.original;
+    }
+  }
+
+
+  function highlightText(element, query) {
+
+    const name = element.querySelector(".account-name");
+    const description = element.querySelector("p");
+
+    if (!name.dataset.original) {
+      name.dataset.original = name.innerHTML;
+    }
+
+    if (!description.dataset.original) {
+      description.dataset.original = description.innerHTML;
+    }
+
+    name.innerHTML = name.dataset.original;
+    description.innerHTML = description.dataset.original;
+
+    if (!query) return;
+
+    const regex = new RegExp("(" + escapeRegExp(query) + ")", "gi");
+
+    name.innerHTML =
+      name.textContent.replace(regex, "<mark>$1</mark>");
+
+    description.innerHTML =
+      description.textContent.replace(regex, "<mark>$1</mark>");
+  }
+
+
   function filterAccounts() {
-    const input = document.getElementById("search");
-    const filter = input.value.toLowerCase();
-    const sections = document.querySelectorAll(".searchable");
+
+    const query = searchInput.value.trim().toLowerCase();
+
+    let totalMatches = 0;
+
+
+    accounts.forEach(account => {
+
+      clearHighlights(account);
+
+      const visibleText = account.textContent.toLowerCase();
+      const keywords = (account.dataset.keywords || "").toLowerCase();
+
+      const matches =
+        query === "" ||
+        visibleText.includes(query) ||
+        keywords.includes(query);
+
+
+      if (matches) {
+
+        account.classList.remove("hidden");
+
+        if (query !== "") {
+          account.classList.add("search-match");
+          highlightText(account, query);
+          totalMatches++;
+        } else {
+          account.classList.remove("search-match");
+        }
+
+      } else {
+
+        account.classList.add("hidden");
+        account.classList.remove("search-match");
+
+      }
+
+    });
+
 
     sections.forEach(section => {
-      const accounts = section.querySelectorAll(".account");
-      let sectionHasMatch = false;
 
-      accounts.forEach(account => {
-        const text = account.textContent.toLowerCase();
+      const visibleAccounts =
+        section.querySelectorAll(".account:not(.hidden)");
 
-        if (text.includes(filter)) {
-          account.classList.remove("hidden");
-          sectionHasMatch = true;
-        } else {
-          account.classList.add("hidden");
-        }
-      });
-
-      if (sectionHasMatch || filter === "") {
+      if (visibleAccounts.length > 0 || query === "") {
         section.classList.remove("hidden");
       } else {
         section.classList.add("hidden");
       }
+
     });
+
+
+    if (query === "") {
+
+      quickReference.classList.remove("hidden");
+      noResults.style.display = "none";
+      resultsMessage.style.display = "none";
+
+    } else {
+
+      quickReference.classList.add("hidden");
+
+      if (totalMatches === 0) {
+
+        noResults.style.display = "block";
+        resultsMessage.style.display = "none";
+
+      } else {
+
+        noResults.style.display = "none";
+
+        resultsMessage.textContent =
+          totalMatches === 1
+            ? "1 matching QuickBooks category"
+            : totalMatches + " matching QuickBooks categories";
+
+        resultsMessage.style.display = "block";
+
+      }
+
+    }
+
   }
+
+
+  searchInput.addEventListener("input", filterAccounts);
 </script>
 
 </body>
